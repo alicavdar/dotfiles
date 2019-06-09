@@ -1,0 +1,4 @@
+set git-colors = no
+
+color date        red  default
+color diff-stat   red  default
