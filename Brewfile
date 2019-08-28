@@ -1,10 +1,11 @@
 tap "homebrew/cask"
 
-cask "java8"
 cask "alacritty"
 cask "spectacle"
 cask "keepingyouawake"
+cask "google-chrome"
 
+brew "tmux"
 brew "vim"
 brew "neovim"
 brew "node"
@@ -25,7 +26,7 @@ brew "translate-shell"
 brew "trash"
 brew "tldr"
 brew "htop"
-brew "fzf
+brew "fzf"
 brew "jq"
 brew "autojump"
 
