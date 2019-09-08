@@ -1,9 +1,10 @@
-[pull]
-	rebase = true
-[branch]
-	autosetuprebase = always
-[rebase]
-	autostash = true
 [user]
-	name = Ali Cavdar
-	email = ac.alicavdar@gmail.com
+  name = Ali Cavdar
+  email = ac.alicavdar@gmail.com
+
+[color]
+  ui = true
+
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
