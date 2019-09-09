@@ -20,6 +20,9 @@ alias vi="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
+# cd
+alias ..="cd .."
+
 # ls
 alias ls="ls -GpF" # colorized, add a slash if it's a directory, show type 
 alias l="ls -lFh" # size, show type, human readable
@@ -31,6 +34,10 @@ alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gd="git diff"
+alias gsl="git stash list"
+alias gss="git stash save"
+alias gsa="git stash apply"
+alias gsd="git stash drop"
 
 # Tmux
 alias tn="tmux new -s"
@@ -38,3 +45,11 @@ alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tk="tmux kill-session -t"
 
+# URL encode / decode with Python
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+# ag - Ignore long lines with "less"
+function agl() {
+  ag --color $1 | less -R -S
+}
