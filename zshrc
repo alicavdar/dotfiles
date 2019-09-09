@@ -16,6 +16,9 @@ compinit
 # It also highlights
 zstyle ':completion:*:*:*:*:*' menu select
 
+# Partial-word and substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
