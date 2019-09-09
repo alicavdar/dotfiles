@@ -7,6 +7,7 @@ cask "google-chrome"
 cask "firefox"
 cask "sublime-text"
 
+brew "coreutils"
 brew "tmux"
 brew "vim"
 brew "neovim"
