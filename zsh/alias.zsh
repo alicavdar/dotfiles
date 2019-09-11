@@ -25,9 +25,8 @@ alias ..="cd .."
 
 # ls
 alias ls="ls -GpF" # colorized, add a slash if it's a directory, show type 
-alias l="ls -lFh" # size, show type, human readable
-alias ll="gls -lh --color --group-directories-first" # long list, human readable
-alias la="ls -lAFh" # long list, show almost all, show type, human readable
+alias l="gls -lFh --color --group-directories-first" # size, show type, human readable
+alias la="gls -lAFh --color --group-directories-first" # long list, show almost all, show type, human readable
 
 # Git
 alias gst="git status"
