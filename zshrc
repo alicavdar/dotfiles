@@ -5,19 +5,9 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 
 source ~/.zsh/key-bindings.zsh 
+source ~/.zsh/completion.zsh
 source ~/.zsh/alias.zsh
 source ~/.zsh/prompt.zsh
-
-# Enable advanced tab completion
-autoload -U compinit
-compinit
-
-# autocompletion with an arrow-key driven interface
-# It also highlights
-zstyle ':completion:*:*:*:*:*' menu select
-
-# Partial-word and substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
