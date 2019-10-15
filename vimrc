@@ -32,6 +32,7 @@ set scroll=10                     " Number of lines to scroll with ^U/^D
 set splitright                    " Open new windows below the current window.
 set splitbelow                    " Open new windows right of the current window.
 set termguicolors                 " Enable true colors
+set mouse=a                       " Enable mouse
 
 set autoindent      " Indent according to previous line
 set expandtab       " Use spaces instead of tabs
