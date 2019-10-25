@@ -6,6 +6,7 @@ cask "keepingyouawake"
 cask "google-chrome"
 cask "firefox"
 cask "sublime-text"
+cask "visual-studio-code"
 
 brew "coreutils"
 brew "tmux"

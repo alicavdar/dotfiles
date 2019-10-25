@@ -1,0 +1,49 @@
+{
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.activityBar.visible": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.showIcons": false,
+  "workbench.editor.enablePreview": false,
+  "editor.fontSize": 18,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.renderIndentGuides": false,
+  "editor.gotoLocation.multiple": "goto",
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "search.smartCase": true,
+  "breadcrumbs.enabled": false,
+  "vim.leader": ",",
+  "vim.debug.silent": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "q"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["g", "n"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["g", "p"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    }
+  ]
+}

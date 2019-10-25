@@ -12,3 +12,4 @@ ln -sF $(PWD)/gitconfig ~/.gitconfig
 ln -sF $(PWD)/vimrc ~/.vimrc
 ln -sF $(PWD)/vim-plug.vim ~/.vim-plug.vim
 ln -sF $(PWD)/nvim ~/.config/nvim/init.vim
+ln -sF $(PWD)/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
