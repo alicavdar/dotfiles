@@ -31,18 +31,24 @@ set linebreak                     " Break long lines by word, not char
 set scroll=10                     " Number of lines to scroll with ^U/^D
 set splitright                    " Open new windows below the current window.
 set splitbelow                    " Open new windows right of the current window.
-set termguicolors                 " Enable true colors
 set mouse=a                       " Enable mouse
+
+set foldmethod=syntax
+set foldlevelstart=99 " Start file with all fold opened
+
+
+" Enable true colors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 set autoindent      " Indent according to previous line
 set expandtab       " Use spaces instead of tabs
 set softtabstop=2   " Tab key indents by 2 spaces
 set shiftwidth=2    " >> indents by 2 spaces
 set shiftround      " >> indents to next multiple of 'shiftwidth'
-
-" True colors for tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " Theme
 set background=dark
