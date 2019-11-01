@@ -5,14 +5,21 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.showIcons": false,
   "workbench.editor.enablePreview": false,
+  "workbench.editor.tabCloseButton": "off",
+  "editor.occurrencesHighlight": false,
   "editor.fontSize": 18,
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
+  "editor.renderLineHighlight": "none",
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.glyphMargin": false,
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
   "editor.renderIndentGuides": false,
   "editor.gotoLocation.multiple": "goto",
   "editor.formatOnSave": true,
+  "editor.hover.enabled": false,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -22,6 +29,7 @@
   "vim.debug.silent": true,
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
+  "vim.foldfix": true,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
