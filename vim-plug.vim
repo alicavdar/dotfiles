@@ -20,5 +20,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-scripts/matchit.zip'
+Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 call plug#end()
