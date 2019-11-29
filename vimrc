@@ -10,7 +10,6 @@ set ttyfast           " Faster redrawing
 set lazyredraw        " Only draw when necessary
 
 set encoding=utf-8                " Set default encoding to UTF-8
-set noshowcmd                     " Don't show typed keys
 set number                        " Show line numbers
 set relativenumber                " Enable relative numbers
 set clipboard=unnamed             " Clipboard without pbcopy
