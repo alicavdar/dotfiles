@@ -105,7 +105,7 @@ inoremap jj <ESC>
 nmap <leader>q :nohlsearch<CR>
 
 " Fast saving
-nmap <Space>w :w!<cr>
+nmap <leader>w :w!<cr>
 
 " Switch between last visited buffers
 nmap <leader>e :e#<CR> 
@@ -131,7 +131,7 @@ map gn :bn<CR>
 map gp :bp<CR>
 
 " Close the buffer
-noremap <Space>d :bd<CR>
+noremap <leader>d :bd<CR>
 
 " Disable arrow keys in normal mode
 noremap <Up> <Nop>
