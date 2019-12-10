@@ -19,12 +19,16 @@
   "editor.renderIndentGuides": false,
   "editor.gotoLocation.multiple": "goto",
   "editor.formatOnSave": true,
-  "editor.hover.enabled": false,
+  // "editor.hover.enabled": false,
+  "editor.colorDecorators": false,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "search.smartCase": true,
   "breadcrumbs.enabled": false,
+  // "editor.parameterHints.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.mode.statusBar.enabled": false,
   "vim.leader": ",",
   "vim.debug.silent": true,
   "vim.useSystemClipboard": true,
@@ -32,34 +36,69 @@
   "vim.foldfix": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "q"],
-      "commands": [":nohl"]
+      "before": [
+        "<leader>",
+        "q"
+      ],
+      "commands": [
+        ":nohl"
+      ]
     },
     {
-      "before": ["g", "n"],
-      "commands": ["workbench.action.nextEditor"]
+      "before": [
+        "g",
+        "n"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
     },
     {
-      "before": ["g", "p"],
-      "commands": ["workbench.action.previousEditor"]
+      "before": [
+        "g",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
     },
     {
-      "before": ["<leader>", "w"],
-      "commands": ["workbench.action.files.save"]
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
     },
     {
-      "before": ["<leader>", "d"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
     },
     {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     }
   ]
 }
