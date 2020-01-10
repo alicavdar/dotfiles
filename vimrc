@@ -157,3 +157,5 @@ noremap <C-u> 10<C-u>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 
+" Search for visually selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
