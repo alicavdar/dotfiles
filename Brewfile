@@ -37,4 +37,5 @@ brew "htop"
 brew "fzf"
 brew "jq"
 brew "autojump"
+brew "httpie"
 
