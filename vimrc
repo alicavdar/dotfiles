@@ -79,7 +79,6 @@ let g:airline_theme = 'dark_minimal'
 let g:airline#extensions#tabline#enabled = 1                " Smarter tab line
 let g:airline#extensions#tabline#formatter = 'unique_tail'  " Show only file name on tabs and buffers
 let g:airline#extensions#tabline#tab_nr_type = 1            " Show tab numbers
-let g:airline#extensions#tabline#buffer_nr_show = 1         " Show buffer numbers
 let g:airline#extensions#branch#enabled = 0                 " Don't show branch name
 
 " netrw - Vim File Explorer
@@ -151,7 +150,7 @@ nnoremap N Nzz
 
 " Number of lines to scroll with ^U/^D
 " https://stackoverflow.com/questions/9906328/vim-scroll-setting-overridden
-noremap <C-u> 10<C-u>
+noremap <C-u> 5<C-u>
 
 " fzf
 nnoremap <silent> <leader>f :Files<CR>
