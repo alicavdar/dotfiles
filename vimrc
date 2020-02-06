@@ -132,6 +132,9 @@ map gp :bp<CR>
 " Close the buffer
 noremap <leader>d :bd<CR>
 
+" Close all buffers except current one
+noremap <leader>c :%bd\|e#<CR>
+
 " Disable arrow keys in normal mode
 noremap <Up> <Nop>
 noremap <Down> <Nop>
