@@ -35,7 +35,6 @@ set mouse=a                       " Enable mouse
 set foldmethod=syntax
 set foldlevelstart=99 " Start file with all fold opened
 
-
 " Enable true colors
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -161,3 +160,11 @@ nnoremap <silent> <leader>b :Buffers<CR>
 
 " Search for visually selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Copy current file name (relative/absolute) to system clipboard
+" Relative path (src/foo.txt)
+nnoremap <leader>cf :let @*=expand("%")<CR>
+" Absolute path (/something/src/foo.txt)
+nnoremap <leader>cF :let @*=expand("%:p")<CR>
+" Filename (foo.txt)
+nnoremap <leader>ct :let @*=expand("%:t")<CR>
