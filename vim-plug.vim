@@ -21,6 +21,5 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'jparise/vim-graphql'
-Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
