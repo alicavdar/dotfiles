@@ -100,5 +100,6 @@
         "workbench.action.quickOpen"
       ]
     }
-  ]
+  ],
+  "workbench.sideBar.location": "right"
 }
