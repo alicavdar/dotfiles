@@ -114,6 +114,7 @@ noremap <leader>a =ip
 " Fixing some annoying typos I often do
 " Such as "q:" instead of ":q"
 nnoremap q: :q
+command! Q q
 command! W w
 command! Qa qa
 command! QA qa
@@ -168,3 +169,12 @@ nnoremap <leader>cf :let @*=expand("%")<CR>
 nnoremap <leader>cF :let @*=expand("%:p")<CR>
 " Filename (foo.txt)
 nnoremap <leader>ct :let @*=expand("%:t")<CR>
+
+" Easier navigation
+noremap K {
+noremap J }
+noremap H ^
+noremap L $
+
+" use `u` to undo, use `U` to redo
+noremap U <C-r>
