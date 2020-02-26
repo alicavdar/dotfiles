@@ -31,6 +31,7 @@ set scroll=10                     " Number of lines to scroll with ^U/^D
 set splitright                    " Open new windows below the current window.
 set splitbelow                    " Open new windows right of the current window.
 set mouse=a                       " Enable mouse
+set scrolloff=999
 
 set foldmethod=syntax
 set foldlevelstart=99 " Start file with all fold opened
@@ -171,8 +172,6 @@ nnoremap <leader>cF :let @*=expand("%:p")<CR>
 nnoremap <leader>ct :let @*=expand("%:t")<CR>
 
 " Easier navigation
-noremap K {
-noremap J }
 noremap H ^
 noremap L $
 
