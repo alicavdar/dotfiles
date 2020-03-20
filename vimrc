@@ -1,9 +1,6 @@
 " Initialize vim-plug
 source ~/.vim-plug.vim
 
-" Initialize deoplete at startup
-let g:deoplete#enable_at_startup = 1
-
 set nocompatible      " Use Vim not Vi
 set shell=/bin/zsh    " Set zsh as a default shell
 set ttyfast           " Faster redrawing
@@ -32,6 +29,7 @@ set splitright                    " Open new windows below the current window.
 set splitbelow                    " Open new windows right of the current window.
 set mouse=a                       " Enable mouse
 set scrolloff=999
+set signcolumn=yes
 
 set foldmethod=syntax
 set foldlevelstart=99 " Start file with all fold opened
@@ -133,9 +131,6 @@ map gp :bp<CR>
 " Close the buffer
 noremap <leader>d :bd<CR>
 
-" Close all buffers except current one
-noremap <leader>c :%bd\|e#<CR>
-
 " Disable arrow keys in normal mode
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -177,3 +172,6 @@ noremap L $
 
 " use `u` to undo, use `U` to redo
 noremap U <C-r>
+
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)

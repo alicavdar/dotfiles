@@ -17,9 +17,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-scripts/matchit.zip'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mattn/emmet-vim'
 
 call plug#end()
