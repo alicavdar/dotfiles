@@ -59,6 +59,12 @@ let g:jellybeans_overrides = {
 filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
 
+" clever-f
+" Search a character only in current line
+let g:clever_f_across_no_line = 1
+" Fix a direction search (always f: forward, F: backward)
+let g:clever_f_fix_key_direction = 1
+
 " Vim randomly breaks syntax highlighting.
 " This config fixes the issue.
 " set maxmempattern=20000

@@ -22,5 +22,6 @@ Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'jparise/vim-graphql'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
+Plug 'rhysd/clever-f.vim'
 
 call plug#end()
