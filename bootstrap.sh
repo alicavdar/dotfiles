@@ -3,6 +3,9 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.vim/undo
 mkdir -p ~/code
 
+# Disable "last login" message on terminal
+touch ~/.hushlogin
+
 ln -sF $(PWD)/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sF $(PWD)/zshrc ~/.zshrc
 ln -sF $(PWD)/zsh ~/.zsh
