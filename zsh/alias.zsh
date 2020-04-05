@@ -29,7 +29,7 @@ alias l="gls -lFh --color --group-directories-first" # size, show type, human re
 alias la="gls -lAFh --color --group-directories-first" # long list, show almost all, show type, human readable
 
 # Git
-alias gst="git status"
+alias gst="git status -sb"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gd="git diff"
