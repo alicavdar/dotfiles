@@ -25,5 +25,6 @@ Plug 'mattn/emmet-vim'
 Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'noahfrederick/vim-noctu'
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
