@@ -29,7 +29,7 @@ alias l="gls -lFh --color --group-directories-first" # size, show type, human re
 alias la="gls -lAFh --color --group-directories-first" # long list, show almost all, show type, human readable
 
 # Git
-alias gst="git status -sb"
+alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gd="git diff"
@@ -47,8 +47,8 @@ alias tl="tmux ls"
 alias tk="tmux kill-session -t"
 
 # URL encode / decode with Python
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 # ag - Ignore long lines with "less"
 function agl() {
