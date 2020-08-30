@@ -153,9 +153,6 @@ nmap <leader>w :w!<cr>
 " Switch between last visited buffers
 nmap <leader>e :e#<CR> 
 
-" Align indentation for current code block
-noremap <leader>a =ip 
-
 " Fixing some annoying typos I often do
 " Such as "q:" instead of ":q"
 nnoremap q: :q
@@ -179,22 +176,6 @@ map gp :bp<CR>
 
 " Close the buffer
 noremap <leader>d :bd<CR>
-
-" Disable arrow keys in normal mode
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-" Disable arrow keys in insert mode
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-" Centralize the matching
-nnoremap n nzz
-nnoremap N Nzz
 
 " Number of lines to scroll with ^U/^D
 " https://stackoverflow.com/questions/9906328/vim-scroll-setting-overridden
