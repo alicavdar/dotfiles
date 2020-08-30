@@ -17,7 +17,7 @@ set hlsearch                      " Highlight searches
 set incsearch                     " Show search matches when typing
 set nobackup                      " Don't create backup files
 set noswapfile                    " Don't use swap files
-set noshowmode                    " Don't show mode status, it's unnecessary with vim-airline
+set noshowmode                    " Don't show mode status since the custom status line has it already
 set hidden                        " Switch between buffers without having to save first
 set smarttab                      " Enable smarttab
 set autoread                      " Auto refresh if the file has been changed outside of VIM
@@ -28,8 +28,9 @@ set scroll=10                     " Number of lines to scroll with ^U/^D
 set splitright                    " Open new windows below the current window.
 set splitbelow                    " Open new windows right of the current window.
 set mouse=a                       " Enable mouse
+set shortmess+=c                  " Don't pass messages to |ins-completion-menu|
+set signcolumn=yes                " Always show the sign column
 set scrolloff=999
-set signcolumn=yes
 
 set foldmethod=syntax
 set foldlevelstart=99 " Start file with all fold opened
@@ -56,6 +57,52 @@ let g:jellybeans_overrides = {
 \ 'Folded': { 'guibg': '000000' },
 \}
 
+" Custom Status Line
+let g:currentMode={
+    \ 'n'  : 'Normal',
+    \ 'no' : 'Normal·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',
+    \ '^V' : 'V·Block',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'Replace',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
+    \}
+
+autocmd ColorScheme * call StatusLineColorScheme()
+
+function! StatusLineColorScheme() abort
+  hi default StatusLineModeColor guifg=#00005f guibg=#dfff00 ctermfg=17 ctermbg=190
+  hi default StatusLineFilePathColor guifg=#ffffff guibg=#161616 ctermfg=255 ctermbg=238
+  hi default StatusLineFileInfoColor guifg=#00005f guibg=#dfff00 ctermfg=17 ctermbg=190
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%#StatusLineModeColor#                      " Color
+set statusline+=\ %{toupper(g:currentMode[mode()])}\        " The current mode
+set statusline+=%#StatusLineFilePathColor#                  " Color
+set statusline+=\ %f                                        " File path (Relative)
+set statusline+=\ %m                                        " Modified flag [+]
+set statusline+=%=                                          " Right Side
+set statusline+=\ %y                                        " FileType
+set statusline+=\ %#StatusLineFileInfoColor#                " Color
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}  " File encoding
+set statusline+=\[%{&fileformat}\]                          " File format
+set statusline+=\ %02l/%L                                   " Line number / total lines
+set statusline+=\:\%02v\                                    " Column number
+
 filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
 
@@ -77,13 +124,6 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.vim/undo
 endif
-
-" Vim Airline
-let g:airline_theme = 'dark_minimal'
-let g:airline#extensions#tabline#enabled = 1                " Smarter tab line
-let g:airline#extensions#tabline#formatter = 'unique_tail'  " Show only file name on tabs and buffers
-let g:airline#extensions#tabline#tab_nr_type = 1            " Show tab numbers
-let g:airline#extensions#branch#enabled = 0                 " Don't show branch name
 
 " netrw - Vim File Explorer
 let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu" " Enable relative line numbers

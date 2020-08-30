@@ -7,8 +7,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'nanotech/jellybeans.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
