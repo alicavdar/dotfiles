@@ -4,10 +4,21 @@ export LANG=en_US.UTF-8
 # Use nvim as the default editor
 export EDITOR=nvim
 
-source ~/.zsh/key-bindings.zsh 
-source ~/.zsh/completion.zsh
-source ~/.zsh/alias.zsh
-source ~/.zsh/prompt.zsh
+source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
+source "$HOME/.zsh/completion.zsh"
+source "$HOME/.zsh/alias.zsh"
+source "$HOME/.zsh/prompt.zsh"
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+autoload -Uz zcalc
+
+# zsh vim mode
+bindkey jj vi-cmd-mode
+bindkey '^p' history-substring-search-up
+bindkey '^n' history-substring-search-down
+bindkey H beginning-of-line
+bindkey L end-of-line
+
 
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
