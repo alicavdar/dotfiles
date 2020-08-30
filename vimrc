@@ -159,8 +159,11 @@ noremap <leader>a =ip
 " Fixing some annoying typos I often do
 " Such as "q:" instead of ":q"
 nnoremap q: :q
+cmap Q! q!
+command! Q q
 command! Q q
 command! W w
+command! Wq wq
 command! Qa qa
 command! QA qa
 
