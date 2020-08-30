@@ -5,6 +5,7 @@ set nocompatible      " Use Vim not Vi
 set shell=/bin/zsh    " Set zsh as a default shell
 set ttyfast           " Faster redrawing
 set lazyredraw        " Only draw when necessary
+set updatetime=300
 
 set encoding=utf-8                " Set default encoding to UTF-8
 set number                        " Show line numbers
