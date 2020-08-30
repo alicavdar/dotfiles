@@ -113,11 +113,6 @@ let g:clever_f_across_no_line = 1
 " Fix a direction search (always f: forward, F: backward)
 let g:clever_f_fix_key_direction = 1
 
-" Vim randomly breaks syntax highlighting.
-" This config fixes the issue.
-" set maxmempattern=20000
-" syntax sync minlines=20
-
 " Maintain undo history 
 " The undo files will be stored ~/.vim/undo
 set undofile 
@@ -127,7 +122,7 @@ if has('persistent_undo')
 endif
 
 " netrw - Vim File Explorer
-let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu" " Enable relative line numbers
+let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
 let g:netrw_fastbrowse = 0
 
 " fzf
