@@ -126,9 +126,6 @@ let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
 let g:netrw_fastbrowse = 0
 
 " fzf
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
-let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
 let g:fzf_layout = { 'window': 'enew' } " Full screen
 
 " Return to last edit position when opening files
@@ -178,6 +175,8 @@ noremap <leader>d :bd<CR>
 noremap <C-u> 5<C-u>
 
 " fzf
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
+nnoremap <silent> <leader>a :Ag<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 

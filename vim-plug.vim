@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
