@@ -148,14 +148,16 @@ nmap <leader>e :e#<CR>
 
 " Fixing some annoying typos I often do
 " Such as "q:" instead of ":q"
-nnoremap q: :q
-cmap Q! q!
-command! Q q
-command! Q q
-command! W w
-command! Wq wq
-command! Qa qa
-command! QA qa
+cnoreabbrev q: :q
+cnoreabbrev Q! q!
+cnoreabbrev Q q
+cnoreabbrev W! w!
+cnoreabbrev Q q
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
 
 " Easy navigation between windows
 nnoremap <C-J> <C-W><C-J>
