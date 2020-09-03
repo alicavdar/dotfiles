@@ -16,9 +16,6 @@ autoload -Uz zcalc
 bindkey jj vi-cmd-mode
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
-bindkey H beginning-of-line
-bindkey L end-of-line
-
 
 # History file configuration
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
