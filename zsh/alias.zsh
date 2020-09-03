@@ -5,6 +5,7 @@
 alias reload="source ~/.zshrc"
 alias c="clear"
 alias hg="history 0 | grep"
+alias calc="zcalc"
 
 # Config
 alias config.zsh="vim ~/.zshrc"
