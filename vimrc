@@ -10,7 +10,7 @@ set updatetime=300
 set encoding=utf-8                " Set default encoding to UTF-8
 set number                        " Show line numbers
 set relativenumber                " Enable relative numbers
-set clipboard=unnamed             " Clipboard without pbcopy
+set clipboard=unnamed             " Yank to system clipboard
 set backspace=indent,eol,start    " Make backspace work as expected
 set smartcase                     " When searching try to be smart about cases
 set ignorecase                    " Ignore case of searches
@@ -31,10 +31,13 @@ set splitbelow                    " Open new windows right of the current window
 set mouse=a                       " Enable mouse
 set shortmess+=c                  " Don't pass messages to |ins-completion-menu|
 set signcolumn=yes                " Always show the sign column
-set scrolloff=999
-
 set foldmethod=syntax
-set foldlevelstart=99 " Start file with all fold opened
+
+set autoindent      " Indent according to previous line
+set expandtab       " Use spaces instead of tabs
+set softtabstop=2   " Tab key indents by 2 spaces
+set shiftwidth=2    " >> indents by 2 spaces
+set shiftround      " >> indents to next multiple of 'shiftwidth'
 
 " Enable true colors
 if exists('+termguicolors')
@@ -42,12 +45,6 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-set autoindent      " Indent according to previous line
-set expandtab       " Use spaces instead of tabs
-set softtabstop=2   " Tab key indents by 2 spaces
-set shiftwidth=2    " >> indents by 2 spaces
-set shiftround      " >> indents to next multiple of 'shiftwidth'
 
 " Theme
 set background=dark
@@ -107,12 +104,6 @@ set statusline+=\:\%02v\                                    " Column number
 filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
 
-" clever-f
-" Search a character only in current line
-let g:clever_f_across_no_line = 1
-" Fix a direction search (always f: forward, F: backward)
-let g:clever_f_fix_key_direction = 1
-
 " Maintain undo history 
 " The undo files will be stored ~/.vim/undo
 set undofile 
@@ -125,11 +116,11 @@ endif
 let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
 let g:netrw_fastbrowse = 0
 
-" fzf
-let g:fzf_layout = { 'window': 'enew' } " Full screen
-
 " Return to last edit position when opening files
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
 " Use comma for the leader
 let mapleader = ","
@@ -172,16 +163,6 @@ map gp :bp<CR>
 " Close the buffer
 noremap <leader>d :bd<CR>
 
-" Number of lines to scroll with ^U/^D
-" https://stackoverflow.com/questions/9906328/vim-scroll-setting-overridden
-noremap <C-u> 5<C-u>
-
-" fzf
-let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
-nnoremap <silent> <leader>a :Ag<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-
 " Search for visually selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
@@ -200,5 +181,27 @@ noremap L $
 " use `u` to undo, use `U` to redo
 noremap U <C-r>
 
+" Moving the cursor through long soft-wrapped lines
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+
+
+" PLUGIN CONFIGS
+
+" fzf
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
+let g:fzf_layout = { 'window': 'enew' } " Full screen
+nnoremap <silent> <leader>a :Ag<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile " Setup
+nnoremap <leader>p :Prettier<CR>
+
+" clever-f
+let g:clever_f_across_no_line = 1  " Search a character only in current line
+let g:clever_f_fix_key_direction = 1 " Fix a direction search (always f: forward, F: backward)

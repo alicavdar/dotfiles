@@ -15,12 +15,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'kshenoy/vim-signature'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-scripts/matchit.zip'
-Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'jparise/vim-graphql'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mattn/emmet-vim'
 Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'noahfrederick/vim-noctu'
