@@ -194,6 +194,7 @@ let g:fzf_layout = { 'window': 'enew' } " Full screen
 nnoremap <silent> <leader>a :Ag<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>t :Filetypes<CR>
 
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
