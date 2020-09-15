@@ -31,6 +31,7 @@ set splitbelow                    " Open new windows right of the current window
 set mouse=a                       " Enable mouse
 set shortmess+=c                  " Don't pass messages to |ins-completion-menu|
 set signcolumn=yes                " Always show the sign column
+set showcmd                       " Show pressed keys
 set foldmethod=syntax
 set nomodeline
 
@@ -191,9 +192,10 @@ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
 let g:fzf_layout = { 'window': 'enew' } " Full screen
-nnoremap <silent> <leader>a :Ag<CR>
+nnoremap <silent> <leader>a :Ag<Space>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <C-p> :Buffers<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 
 " coc.nvim
