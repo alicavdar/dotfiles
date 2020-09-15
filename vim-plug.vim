@@ -10,7 +10,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -21,5 +20,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'preservim/nerdtree'
 
 call plug#end()

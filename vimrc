@@ -32,6 +32,9 @@ set mouse=a                       " Enable mouse
 set shortmess+=c                  " Don't pass messages to |ins-completion-menu|
 set signcolumn=yes                " Always show the sign column
 set foldmethod=syntax
+set nomodeline
+
+let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 
 set autoindent      " Indent according to previous line
 set expandtab       " Use spaces instead of tabs
@@ -53,6 +56,7 @@ let g:jellybeans_overrides = {
 \ 'background': { 'guibg': '000000' },
 \ 'SignColumn': { 'guibg': '000000' },
 \ 'Folded': { 'guibg': '000000' },
+\ 'VertSplit': { 'guibg': '', 'ctermbg': ''},
 \}
 
 " Custom Status Line
@@ -111,10 +115,6 @@ if has('persistent_undo')
   set undofile
   set undodir=~/.vim/undo
 endif
-
-" netrw - Vim File Explorer
-let g:netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
-let g:netrw_fastbrowse = 0
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -206,3 +206,14 @@ nnoremap <leader>p :Prettier<CR>
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line
 let g:clever_f_fix_key_direction = 1 " Fix a direction search (always f: forward, F: backward)
+
+" NERDTree
+let g:NERDTreeStatusline = '%#NonText#' " Hide status bar
+let NERDTreeMinimalUI = 1 " Minimal UI
+let NERDTreeShowHidden = 1 " Show hidden files
+let NERDTreeIgnore=['\.DS_Store$']
+
+" Toggle NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+" Reveal the current buffer in NERDTree window
+nnoremap <C-r> :NERDTreeFind<CR>
