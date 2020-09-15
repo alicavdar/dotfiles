@@ -21,5 +21,6 @@ Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'preservim/nerdtree'
+Plug 'mattn/emmet-vim'
 
 call plug#end()

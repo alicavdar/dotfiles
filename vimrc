@@ -219,3 +219,7 @@ let NERDTreeIgnore=['\.DS_Store$']
 nnoremap <C-n> :NERDTreeToggle<CR>
 " Reveal the current buffer in NERDTree window
 nnoremap <C-r> :NERDTreeFind<CR>
+
+" Emmet.vim
+" Use tab key as abbreviation expander
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
