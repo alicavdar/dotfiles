@@ -123,7 +123,7 @@ autocmd BufReadPost *
   \ endif
 
 " Use comma for the leader
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Easier escape than ESC
 inoremap jj <ESC>
