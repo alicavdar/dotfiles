@@ -20,7 +20,6 @@ Plug 'jparise/vim-graphql'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
-Plug 'noahfrederick/vim-noctu'
 Plug 'tpope/vim-eunuch'
 
 call plug#end()
