@@ -2,6 +2,13 @@
   name = Ali Cavdar
   email= ac.alicavdar@gmail.com
 
+[core]
+  pager = delta
+
+[delta]
+  line-numberrs = true
+  side-by-side = true
+
 [color]
   ui = true
 
@@ -10,6 +17,7 @@
 
 [github]
   user = alicavdar
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
