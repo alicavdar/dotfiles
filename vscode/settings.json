@@ -1,105 +1,63 @@
 {
-  "window.zoomLevel": 0,
-  "workbench.colorTheme": "Atom One Dark",
+  "window.zoomLevel": 0.10,
+
+  "workbench.iconTheme": null,
+  "workbench.editor.enablePreview": false,
   "workbench.activityBar.visible": false,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.editor.showIcons": false,
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.tabCloseButton": "off",
-  "editor.occurrencesHighlight": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.statusBar.visible": false,
+
   "editor.fontSize": 18,
+  "editor.lineHeight": 35,
+  "editor.renderLineHighlight": "none",
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "relative",
-  "editor.renderLineHighlight": "none",
-  "editor.overviewRulerBorder": false,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.glyphMargin": false,
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true,
+  "editor.cursorBlinking": "solid",
+  "editor.tabSize": 2,
+  "editor.useTabStops": false,
   "editor.renderIndentGuides": false,
-  "editor.gotoLocation.multiple": "goto",
-  "editor.formatOnSave": true,
-  // "editor.hover.enabled": false,
-  "editor.colorDecorators": false,
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "search.smartCase": true,
+  "editor.glyphMargin": false,
+  "editor.occurrencesHighlight": false,
+  "editor.hideCursorInOverviewRuler": false,
+
   "breadcrumbs.enabled": false,
-  // "editor.parameterHints.enabled": false,
-  "gitlens.currentLine.enabled": false,
-  "gitlens.mode.statusBar.enabled": false,
-  "vim.leader": ",",
-  "vim.debug.silent": true,
+
+  "extensions.ignoreRecommendations": true,
+
+  // Vim
   "vim.useSystemClipboard": true,
+  "search.smartCase": true,
+  "vim.leader": "<Space>",
+  "vim.debug.silent": true,
   "vim.hlsearch": true,
   "vim.foldfix": true,
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": [ "j", "j" ],
+      "after": [ "<Esc>"]
     }
   ],
-  "vim.normalModeKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "<leader>",
-        "q"
-      ],
-      "commands": [
-        ":nohl"
-      ]
+      "before": [ "g", "n" ],
+      "commands": [ "workbench.action.nextEditor" ]
     },
     {
-      "before": [
-        "g",
-        "n"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ]
+      "before": [ "g", "p" ],
+      "commands": [ "workbench.action.previousEditor" ]
     },
     {
-      "before": [
-        "g",
-        "p"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ]
+      "before": [ "<leader>", "q" ],
+      "commands": [ ":nohl" ]
     },
     {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
+      "before": [ "<leader>", "d"],
+      "commands": [ ":q" ]
     },
     {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+      "before": [ "<leader>", "w"],
+      "commands": [ "workbench.action.files.save" ]
     }
   ],
-  "workbench.sideBar.location": "right"
 }
