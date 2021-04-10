@@ -6,7 +6,7 @@
   pager = delta
 
 [delta]
-  line-numberrs = true
+  line-numbers = true
   side-by-side = true
 
 [color]
