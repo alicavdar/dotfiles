@@ -34,6 +34,7 @@ set signcolumn=yes                " Always show the sign column
 set showcmd                       " Show pressed keys
 set foldmethod=syntax
 set nomodeline
+set nofoldenable
 
 let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 
