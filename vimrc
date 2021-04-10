@@ -187,6 +187,11 @@ noremap U <C-r>
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
+" Resize windows with arrow keys
+nnoremap <Left>  <C-w>>
+nnoremap <Right> <C-w><
+nnoremap <Up>    <C-w>-
+nnoremap <Down>  <C-w>+
 
 " PLUGIN CONFIGS
 
