@@ -204,6 +204,10 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-p> :Buffers<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 
+" Hide statusline
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 
