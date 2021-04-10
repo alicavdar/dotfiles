@@ -8,6 +8,7 @@ source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
 source "$HOME/.zsh/completion.zsh"
 source "$HOME/.zsh/alias.zsh"
 source "$HOME/.zsh/prompt.zsh"
+source "$HOME/.zsh/functions.zsh"
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 autoload -Uz zcalc

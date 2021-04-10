@@ -10,6 +10,7 @@ alias calc="zcalc"
 # Config
 alias config.zsh="vim ~/.zshrc"
 alias config.alias="vim ~/.zsh/alias.zsh"
+alias config.functions="vim ~/.zsh/functions.zsh"
 alias config.keys="vim ~/.zsh/key-bindings.zsh"
 alias config.prompt="vim ~/.zsh/prompt.zsh"
 alias config.vim="vim ~/.vimrc"
@@ -51,8 +52,3 @@ alias tk="tmux kill-session -t"
 # URL encode / decode with Python
 alias urldecode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
-
-# ag - Ignore long lines with "less"
-function agl() {
-  ag --color $1 | less -R -S
-}
