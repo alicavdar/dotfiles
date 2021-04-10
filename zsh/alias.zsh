@@ -15,6 +15,7 @@ alias config.prompt="vim ~/.zsh/prompt.zsh"
 alias config.vim="vim ~/.vimrc"
 alias config.tmux="vim ~/.tmux.conf"
 alias config.alacritty="vim ~/.config/alacritty/alacritty.yml"
+alias config.git="vim ~/.gitconfig"
 
 # Vim
 alias vi="nvim"
