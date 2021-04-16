@@ -19,9 +19,8 @@ alias config.alacritty="vim ~/.config/alacritty/alacritty.yml"
 alias config.git="vim ~/.gitconfig"
 
 # Vim
-alias vi="nvim"
-alias vim="nvim"
-alias vimdiff="nvim -d"
+alias vi="~/nvim-osx64/bin/nvim"
+alias vim="~/nvim-osx64/bin/nvim"
 
 # cd
 alias ..="cd .."
@@ -32,6 +31,7 @@ alias l="gls -lFh --color --group-directories-first" # size, show type, human re
 alias la="gls -lAFh --color --group-directories-first" # long list, show almost all, show type, human readable
 
 # Git
+alias gs="git status"
 alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
@@ -49,6 +49,3 @@ alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tk="tmux kill-session -t"
 
-# URL encode / decode with Python
-alias urldecode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias urlencode='/usr/bin/python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'

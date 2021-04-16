@@ -2,7 +2,7 @@
 export LANG=en_US.UTF-8
 
 # Use nvim as the default editor
-export EDITOR=nvim
+export EDITOR="~/nvim-osx64/bin/nvim"
 
 source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
 source "$HOME/.zsh/completion.zsh"
@@ -44,10 +44,7 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 # FZF color scheme
 export FZF_DEFAULT_OPTS='
-  --color=fg:-1,bg:-1,hl:#ecc518
-  --color=fg+:#d0d0d0,bg+:#000000,hl+:#ecc518
-  --color=info:#afaf87,prompt:#ecc518,pointer:#ecc518
-  --color=marker:#87ff00,spinner:#ecc518,header:#8ecc51
+  --color=gutter:-1,bg:-1,hl:#ecc518
 '
 
 # Grep

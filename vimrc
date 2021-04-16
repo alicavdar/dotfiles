@@ -14,11 +14,10 @@ set clipboard=unnamed             " Yank to system clipboard
 set backspace=indent,eol,start    " Make backspace work as expected
 set smartcase                     " When searching try to be smart about cases
 set ignorecase                    " Ignore case of searches
-set hlsearch                      " Highlight searches
+set nohlsearch                    " Don't highlight searches
 set incsearch                     " Show search matches when typing
 set nobackup                      " Don't create backup files
 set noswapfile                    " Don't use swap files
-set noshowmode                    " Don't show mode status since the custom status line has it already
 set hidden                        " Switch between buffers without having to save first
 set smarttab                      " Enable smarttab
 set autoread                      " Auto refresh if the file has been changed outside of VIM
@@ -31,12 +30,7 @@ set splitbelow                    " Open new windows right of the current window
 set mouse=a                       " Enable mouse
 set shortmess+=c                  " Don't pass messages to |ins-completion-menu|
 set signcolumn=yes                " Always show the sign column
-set showcmd                       " Show pressed keys
-set foldmethod=syntax
-set nomodeline
-set nofoldenable
-
-let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
+set termguicolors                 " Enable true colors
 
 set autoindent      " Indent according to previous line
 set expandtab       " Use spaces instead of tabs
@@ -44,68 +38,22 @@ set softtabstop=2   " Tab key indents by 2 spaces
 set shiftwidth=2    " >> indents by 2 spaces
 set shiftround      " >> indents to next multiple of 'shiftwidth'
 
-" Enable true colors
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+"Hide status line
+set noruler
+set laststatus=0
+set noshowcmd
+set noshowmode
+
+" Folding
+set foldmethod=indent
+set foldlevel=20 " Opens all folds when opening a file
+
+let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 
 " Theme
 set background=dark
-colorscheme jellybeans
-let g:jellybeans_overrides = {
-\ 'background': { 'guibg': '000000' },
-\ 'SignColumn': { 'guibg': '000000' },
-\ 'Folded': { 'guibg': '000000' },
-\ 'VertSplit': { 'guibg': '', 'ctermbg': ''},
-\}
-
-" Custom Status Line
-let g:currentMode={
-    \ 'n'  : 'Normal',
-    \ 'no' : 'Normal·Operator Pending',
-    \ 'v'  : 'Visual',
-    \ 'V'  : 'V·Line',
-    \ '^V' : 'V·Block',
-    \ 's'  : 'Select',
-    \ 'S'  : 'S·Line',
-    \ '^S' : 'S·Block',
-    \ 'i'  : 'Insert',
-    \ 'R'  : 'Replace',
-    \ 'Rv' : 'V·Replace',
-    \ 'c'  : 'Command',
-    \ 'cv' : 'Vim Ex',
-    \ 'ce' : 'Ex',
-    \ 'r'  : 'Prompt',
-    \ 'rm' : 'More',
-    \ 'r?' : 'Confirm',
-    \ '!'  : 'Shell',
-    \ 't'  : 'Terminal'
-    \}
-
-autocmd ColorScheme * call StatusLineColorScheme()
-
-function! StatusLineColorScheme() abort
-  hi default StatusLineModeColor guifg=#00005f guibg=#dfff00 ctermfg=17 ctermbg=190
-  hi default StatusLineFilePathColor guifg=#ffffff guibg=#161616 ctermfg=255 ctermbg=238
-  hi default StatusLineFileInfoColor guifg=#00005f guibg=#dfff00 ctermfg=17 ctermbg=190
-endfunction
-
-set laststatus=2
-set statusline=
-set statusline+=%#StatusLineModeColor#                      " Color
-set statusline+=\ %{toupper(g:currentMode[mode()])}\        " The current mode
-set statusline+=%#StatusLineFilePathColor#                  " Color
-set statusline+=\ %f                                        " File path (Relative)
-set statusline+=\ %m                                        " Modified flag [+]
-set statusline+=%=                                          " Right Side
-set statusline+=\ %y                                        " FileType
-set statusline+=\ %#StatusLineFileInfoColor#                " Color
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}  " File encoding
-set statusline+=\[%{&fileformat}\]                          " File format
-set statusline+=\ %02l/%L                                   " Line number / total lines
-set statusline+=\:\%02v\                                    " Column number
+let g:sonokai_transparent_background = 1
+colorscheme sonokai
 
 filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
@@ -162,6 +110,11 @@ nnoremap <C-H> <C-W><C-H>
 map gn :bn<CR>
 map gp :bp<CR>
 
+" Make search results appear in the middle of the screen
+:nnoremap n nzz
+:nnoremap N Nzz
+:nnoremap * *zz
+
 " Close the buffer
 nnoremap <leader>d :bp\|bd #<CR>
 
@@ -195,25 +148,48 @@ nnoremap <Down>  <C-w>+
 
 " PLUGIN CONFIGS
 
+" Setup NVIM LSP
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+let g:completion_matching_strategy_list = ["exact", "substring", "fuzzy"]
+let g:completion_enable_auto_hover = 0
+
+lua require'lspconfig'.tsserver.setup { on_attach=require'completion'.on_attach }
+
+lua << EOF
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+ vim.lsp.diagnostic.on_publish_diagnostics, {
+   -- Disable virtual text
+   virtual_text = false
+ }
+)
+EOF
+
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+
+" Setup NVIM TreeSitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
-let g:fzf_layout = { 'window': 'enew' } " Full screen
+" let g:fzf_layout = { 'window': 'enew' } " Full screen
 nnoremap <silent> <leader>a :Ag<Space>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
 nnoremap <silent> <C-p> :Buffers<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 
-" Hide statusline
-autocmd! FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" Neoformat
+let g:neoformat_enabled_javascript = ['prettier', 'eslint_d']
 
-" coc.nvim
-nmap <silent> gd <Plug>(coc-definition)
-
-" Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile " Setup
-nnoremap <leader>p :Prettier<CR>
+nnoremap <leader>p <cmd>Neoformat<cr>
 
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line
@@ -230,6 +206,3 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " Reveal the current buffer in NERDTree window
 nnoremap <C-r> :NERDTreeFind<CR>
 
-" Emmet.vim
-" Use tab key as abbreviation expander
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")

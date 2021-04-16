@@ -1,12 +1,9 @@
 {
-  "window.zoomLevel": 0.10,
-
   "workbench.iconTheme": null,
   "workbench.editor.enablePreview": false,
   "workbench.activityBar.visible": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.tabSizing": "shrink",
-  "workbench.statusBar.visible": false,
 
   "editor.fontSize": 18,
   "editor.lineHeight": 35,
@@ -60,4 +57,10 @@
       "commands": [ "workbench.action.files.save" ]
     }
   ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 }
