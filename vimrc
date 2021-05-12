@@ -99,6 +99,12 @@ cnoreabbrev Wq wq
 cnoreabbrev Wa wa
 cnoreabbrev Qa qa
 cnoreabbrev QA qa
+cnoreabbrev Bd bd
+cnoreabbrev bD bd
+cnoreabbrev BD bd
+cnoreabbrev Bd! bd!
+cnoreabbrev bD! bd!
+cnoreabbrev BD! bd!
 
 " Easy navigation between windows
 nnoremap <C-J> <C-W><C-J>
