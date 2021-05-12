@@ -38,4 +38,5 @@ brew "htop"
 brew "jq"
 brew "autojump"
 brew "httpie"
+brew "watch"
 
