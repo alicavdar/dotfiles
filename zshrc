@@ -2,7 +2,7 @@
 export LANG=en_US.UTF-8
 
 # Use nvim as the default editor
-export EDITOR="~/nvim-osx64/bin/nvim"
+export EDITOR="nvim"
 
 source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
 source "$HOME/.zsh/completion.zsh"
