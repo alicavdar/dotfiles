@@ -1,6 +1,5 @@
-[user]
-  name = Ali Cavdar
-  email= ac.alicavdar@gmail.com
+[include]
+  path = ~/.gitconfig.local
 
 [core]
   pager = delta
