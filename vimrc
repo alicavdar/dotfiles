@@ -173,14 +173,22 @@ EOF
 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-e> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Setup NVIM TreeSitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = { enable = true },
+  incremental_selection = { enable = false },
+  ensure_installed = {'javascript'}
+}
+EOF
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
