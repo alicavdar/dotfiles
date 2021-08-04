@@ -154,6 +154,9 @@ nnoremap <Down>  <C-w>+
 
 " PLUGIN CONFIGS
 
+"  vim-slime
+let g:slime_target = "tmux"
+
 " Setup NVIM LSP
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
