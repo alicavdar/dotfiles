@@ -18,6 +18,7 @@ Plug 'sbdchd/neoformat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'ap/vim-buftabline'
 Plug 'jpalardy/vim-slime'
 
 call plug#end()
