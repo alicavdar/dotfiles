@@ -123,6 +123,7 @@ map gp :bp<CR>
 
 " Close the buffer
 nnoremap <leader>d :bp\|bd #<CR>
+cnoreabbrev bd :bp\|bd #<CR>
 
 " Search for visually selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
