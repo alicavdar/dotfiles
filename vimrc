@@ -160,10 +160,24 @@ let g:slime_target = "tmux"
 " Setup NVIM LSP
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
-let g:completion_matching_strategy_list = ["exact", "substring", "fuzzy"]
-let g:completion_enable_auto_hover = 0
 
-lua require'lspconfig'.tsserver.setup { on_attach=require'completion'.on_attach }
+lua << EOF
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+
+  source = {
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+  }
+}
+EOF
+
+inoremap <silent><expr> <C-Space> compe#complete()
+
+lua require'lspconfig'.tsserver.setup {}
 
 lua << EOF
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
