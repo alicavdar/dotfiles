@@ -39,4 +39,5 @@ brew "jq"
 brew "autojump"
 brew "httpie"
 brew "watch"
+brew "lazygit"
 
