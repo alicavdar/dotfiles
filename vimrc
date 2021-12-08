@@ -152,6 +152,13 @@ nnoremap <Down>  <C-w>+
 " Behave like D and C
 nnoremap Y y$
 
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap <Space> <Space><c-g>u
+
 " PLUGIN CONFIGS
 
 "  vim-slime
