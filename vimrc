@@ -159,6 +159,9 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 inoremap <Space> <Space><c-g>u
 
+" Neovim Terminal
+tnoremap <Esc> <C-\><C-n>
+
 " PLUGIN CONFIGS
 
 "  vim-slime
