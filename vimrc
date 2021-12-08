@@ -60,12 +60,8 @@ filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
 
 " Maintain undo history 
-" The undo files will be stored ~/.vim/undo
 set undofile 
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.vim/undo
-endif
+set undodir=~/.vim/undo
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
