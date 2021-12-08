@@ -16,3 +16,7 @@ ln -sF $(PWD)/vimrc ~/.vimrc
 ln -sF $(PWD)/vim-plug.vim ~/.vim-plug.vim
 ln -sF $(PWD)/nvim ~/.config/nvim/init.vim
 ln -sF $(PWD)/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+# Install nvm.sh manually since homebrew installation is not supported.
+# See https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
