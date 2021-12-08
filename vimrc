@@ -45,8 +45,9 @@ set noshowcmd
 set noshowmode
 
 " Folding
-set foldmethod=indent
 set foldlevel=20 " Opens all folds when opening a file
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 
