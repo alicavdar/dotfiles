@@ -149,6 +149,9 @@ nnoremap <Right> <C-w><
 nnoremap <Up>    <C-w>-
 nnoremap <Down>  <C-w>+
 
+" Behave like D and C
+nnoremap Y y$
+
 " PLUGIN CONFIGS
 
 "  vim-slime
