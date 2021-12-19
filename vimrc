@@ -69,7 +69,7 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-" Use comma for the leader
+" Use Space for the leader
 let mapleader = "\<Space>"
 
 " Easier escape than ESC
