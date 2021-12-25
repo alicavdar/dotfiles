@@ -40,4 +40,5 @@ brew "autojump"
 brew "httpie"
 brew "watch"
 brew "lazygit"
+brew "dust"
 
