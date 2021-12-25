@@ -1,3 +1,7 @@
+mcd () {
+  mkdir -p "$1" && cd "$1"
+}
+
 # ag - Ignore long lines with "less"
 function agl() {
   ag --color $1 | less -R -S
