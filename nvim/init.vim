@@ -1,5 +1,7 @@
 " Initialize vim-plug
-source ~/.vim-plug.vim
+source ~/.config/nvim/plug.vim
+
+lua require("lsp")
 
 set nocompatible      " Use Vim not Vi
 set shell=/bin/zsh    " Set zsh as a default shell
@@ -167,46 +169,10 @@ tnoremap <Esc> <C-\><C-n>
 "  vim-slime
 let g:slime_target = "tmux"
 
-" Setup NVIM LSP
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
-lua << EOF
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-
-  source = {
-    buffer = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-  }
-}
-EOF
-
-inoremap <silent><expr> <C-Space> compe#complete()
-
-lua require'lspconfig'.tsserver.setup {}
-
-lua << EOF
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
- vim.lsp.diagnostic.on_publish_diagnostics, {
-   -- Disable virtual text
-   virtual_text = false
- }
-)
-EOF
-
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-e> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+inoremap <C-Space> <C-x><C-o>
 
 " Setup NVIM TreeSitter
 lua << EOF
@@ -219,18 +185,11 @@ EOF
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
-" let g:fzf_layout = { 'window': 'enew' } " Full screen
 nnoremap <silent> <leader>a :Ag<Space>
 nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
-nnoremap <silent> <C-p> :Buffers<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
-
-" Neoformat
-let g:neoformat_enabled_javascript = ['prettier', 'eslint_d']
-
-nnoremap <leader>p <cmd>Neoformat<cr>
+nnoremap <silent> <C-p> :Buffers<CR>
 
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line

@@ -1,4 +1,3 @@
-mkdir -p ~/.config/nvim
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.vim/undo
 mkdir -p ~/code
@@ -12,10 +11,11 @@ ln -sF $(PWD)/zsh ~/.zsh
 ln -sF $(PWD)/tmux.conf ~/.tmux.conf
 ln -sF $(PWD)/tigrc ~/.tigrc
 ln -sF $(PWD)/gitconfig ~/.gitconfig
-ln -sF $(PWD)/vimrc ~/.vimrc
-ln -sF $(PWD)/vim-plug.vim ~/.vim-plug.vim
-ln -sF $(PWD)/nvim ~/.config/nvim/init.vim
-ln -sF $(PWD)/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -sF $(PWD)/nvim ~/.config/nvim
+
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Install nvm.sh manually since homebrew installation is not supported.
 # See https://github.com/nvm-sh/nvm
