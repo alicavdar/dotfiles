@@ -7,6 +7,7 @@ alias c="clear"
 alias hg="history 0 | grep"
 alias calc="zcalc"
 alias lg="lazygit"
+alias du="ncdu"
 
 # Config
 alias config.zsh="vim ~/.zshrc"
