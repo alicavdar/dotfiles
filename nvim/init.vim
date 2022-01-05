@@ -104,6 +104,7 @@ cnoreabbrev BD bd
 cnoreabbrev Bd! bd!
 cnoreabbrev bD! bd!
 cnoreabbrev BD! bd!
+cnoreabbrev E! e!
 
 " Easy navigation between windows
 nnoremap <C-J> <C-W><C-J>
