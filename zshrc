@@ -34,8 +34,8 @@ setopt hist_ignore_space      # Don't add commands starting with a space
 setopt hist_verify            # Show command with history expansion to user before running it
 setopt share_history          # Share history data between sessions
 
-# Initialize autojump
-source /usr/local/etc/profile.d/autojump.sh
+# Initialize jump
+eval "$(jump shell --bind=z)"
 
 # zsh-syntax-highligting without underlines
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -58,6 +58,3 @@ export GREP_COLOR='1;32' # Bright green
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

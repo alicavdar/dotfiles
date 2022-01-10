@@ -18,3 +18,8 @@ function delete-branches() {
     fzf --multi --preview="git log {} --" |
     xargs -r git branch --delete --force
 }
+
+load_nvm() {
+  export NVM_DIR=~/.nvm
+  [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+}

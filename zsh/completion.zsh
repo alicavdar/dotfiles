@@ -1,6 +1,11 @@
 # Enable advanced tab completion
-autoload -U compinit
-compinit
+autoload -Uz compinit
+
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # autocompletion with an arrow-key driven interface
 # It also highlights
