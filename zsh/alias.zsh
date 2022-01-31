@@ -26,6 +26,7 @@ alias vim="nvim"
 
 # cd
 alias ..="cd .."
+alias ...="cd ../.."
 
 # ls
 alias ls="ls -GpF" # colorized, add a slash if it's a directory, show type 
@@ -50,4 +51,3 @@ alias tn="tmux new -s"
 alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tk="tmux kill-session -t"
-
