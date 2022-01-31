@@ -40,4 +40,5 @@ brew "jump"
 brew "httpie"
 brew "watch"
 brew "lazygit"
+brew "fzf"
 

@@ -47,6 +47,9 @@ export FZF_DEFAULT_OPTS='
   --color=gutter:-1,bg:-1,hl:#ecc518
 '
 
+# Load FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Grep
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32' # Bright green
