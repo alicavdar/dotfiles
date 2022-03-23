@@ -19,7 +19,15 @@ function delete-branches() {
     xargs -r git branch --delete --force
 }
 
-load_nvm() {
+function load_nvm() {
   export NVM_DIR=~/.nvm
   [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 }
+
+function link_nvm() {
+  sudo rm -f /usr/local/bin/node
+  sudo rm -f /usr/local/bin/npm
+  sudo ln -s $(which node) /usr/local/bin/
+  sudo ln -s $(which npm) /usr/local/bin/
+}
+
