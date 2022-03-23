@@ -12,6 +12,7 @@
   ui = true
 
 [alias]
+  upstream = !git push -u origin HEAD
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [github]
