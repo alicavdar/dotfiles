@@ -31,3 +31,6 @@ function link_nvm() {
   sudo ln -s $(which npm) /usr/local/bin/
 }
 
+function ip() {
+  curl -s ipinfo.io | jq .ip | tr -d \"
+}
