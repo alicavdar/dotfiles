@@ -192,6 +192,8 @@ nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 nnoremap <silent> <C-p> :Buffers<CR>
 
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line
