@@ -9,6 +9,8 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -24,7 +26,5 @@ Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-buftabline'
 Plug 'jpalardy/vim-slime'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 
 call plug#end()

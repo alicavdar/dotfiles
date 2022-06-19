@@ -174,7 +174,6 @@ let g:slime_target = "tmux"
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
-inoremap <C-Space> <C-x><C-o>
 
 " Setup NVIM TreeSitter
 lua << EOF
@@ -193,8 +192,6 @@ nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 nnoremap <silent> <C-p> :Buffers<CR>
 
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line
