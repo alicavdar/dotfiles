@@ -8,11 +8,6 @@ cask "firefox"
 cask "sublime-text"
 cask "visual-studio-code"
 
-# Quick Look plugins
-cask "qlimagesize"
-cask "betterzip"
-cask "qlmarkdown"
-
 brew "coreutils"
 brew "tmux"
 brew "vim"
