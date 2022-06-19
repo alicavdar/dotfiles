@@ -211,6 +211,17 @@ nnoremap <C-r> :NERDTreeFind<CR>
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" barbar.nvim - Tabline
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.animation = v:false
+let bufferline.icons = v:false
+let bufferline.closable = v:false
+let bufferline.tabpages = v:false
+let bufferline.no_name_title = "-"
+let bufferline.icon_separator_active = ''
+let bufferline.icon_separator_inactive = ''
+let bufferline.maximum_padding = 1
+
 augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})

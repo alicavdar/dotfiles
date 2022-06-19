@@ -24,7 +24,7 @@ Plug 'wellle/targets.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
-Plug 'ap/vim-buftabline'
+Plug 'romgrk/barbar.nvim'
 Plug 'jpalardy/vim-slime'
 
 call plug#end()
