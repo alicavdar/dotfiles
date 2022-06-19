@@ -91,6 +91,7 @@ nmap <leader>e :e#<CR>
 cnoreabbrev q: :q
 cnoreabbrev Q! q!
 cnoreabbrev Q q
+cnoreabbrev q1 q!
 cnoreabbrev W! w!
 cnoreabbrev Q q
 cnoreabbrev W w
@@ -167,7 +168,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " PLUGIN CONFIGS
 
-"  vim-slime
+" vim-slime
 let g:slime_target = "tmux"
 
 set completeopt=menuone,noinsert,noselect
