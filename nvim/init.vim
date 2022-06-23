@@ -1,7 +1,8 @@
 " Initialize vim-plug
 source ~/.config/nvim/plug.vim
 
-lua require("lsp")
+lua require('lsp')
+lua require('Comment').setup()
 
 set nocompatible      " Use Vim not Vi
 set shell=/bin/zsh    " Set zsh as a default shell
