@@ -18,7 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'sainnhe/sonokai'
 Plug 'tpope/vim-surround'
-Plug 'numtostr/comment.nvim'
+Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'wellle/targets.vim'
