@@ -27,5 +27,6 @@ Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'romgrk/barbar.nvim'
 Plug 'jpalardy/vim-slime'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()

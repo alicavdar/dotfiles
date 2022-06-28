@@ -232,3 +232,8 @@ augroup END
 
 " vim-vsnip
 imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
+
