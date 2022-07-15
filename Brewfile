@@ -1,12 +1,10 @@
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 
 cask "alacritty"
 cask "spectacle"
 cask "keepingyouawake"
-cask "google-chrome"
-cask "firefox"
-cask "sublime-text"
-cask "visual-studio-code"
+cask "font-fira-code"
 
 brew "coreutils"
 brew "tmux"
