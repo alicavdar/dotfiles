@@ -18,7 +18,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   })
@@ -61,6 +61,12 @@ end
 require("nvim-lsp-installer").setup {
   automatic_installation = true,
 }
+
+require "lsp_signature".setup({
+  -- hint_enable = false,
+  hint_prefix = '',
+  floating_window = false,
+})
 
 local lsp_flags = {
   debounce_text_changes = 150,

@@ -167,6 +167,9 @@ inoremap <Space> <Space><c-g>u
 " Neovim Terminal
 tnoremap <Esc> <C-\><C-n>
 
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " PLUGIN CONFIGS
 
 " vim-slime
@@ -174,7 +177,6 @@ let g:slime_target = "tmux"
 
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
-
 
 " Setup NVIM TreeSitter
 lua << EOF
@@ -192,9 +194,6 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
 nnoremap <silent> <leader>t :Filetypes<CR>
 nnoremap <silent> <C-p> :Buffers<CR>
-
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 " clever-f
 let g:clever_f_across_no_line = 1  " Search a character only in current line
