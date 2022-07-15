@@ -9,7 +9,7 @@ source "$HOME/.zsh/completion.zsh"
 source "$HOME/.zsh/alias.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/functions.zsh"
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -Uz zcalc
 
@@ -38,7 +38,7 @@ setopt share_history          # Share history data between sessions
 eval "$(jump shell --bind=z)"
 
 # zsh-syntax-highligting without underlines
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
