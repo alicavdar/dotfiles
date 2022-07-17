@@ -2,6 +2,7 @@
 source ~/.config/nvim/plug.vim
 
 lua require('lsp')
+lua require("nvim-autopairs").setup()
 lua require('Comment').setup()
 
 set nocompatible      " Use Vim not Vi
@@ -231,8 +232,3 @@ augroup END
 
 " vim-vsnip
 imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-
-lua << EOF
-require("nvim-autopairs").setup {}
-EOF
-
