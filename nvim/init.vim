@@ -114,17 +114,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Easy navigation between buffers
-map gn :bn<CR>
-map gp :bp<CR>
-
 " Make search results appear in the middle of the screen
 :nnoremap n nzz
 :nnoremap N Nzz
 :nnoremap * *zz
-
-" Close the buffer
-nnoremap <leader>d :bp\|bd #<CR>
 
 " Search for visually selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -170,7 +163,25 @@ tnoremap <Esc> <C-\><C-n>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+"
 " PLUGIN CONFIGS
+"
+
+" barbar.nvim - Tabline
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.animation = v:false
+let bufferline.icons = v:false
+let bufferline.closable = v:false
+let bufferline.tabpages = v:false
+let bufferline.no_name_title = "-"
+let bufferline.icon_separator_active = ''
+let bufferline.icon_separator_inactive = ''
+let bufferline.maximum_padding = 1
+let bufferline.insert_at_end = v:true
+
+nnoremap gn <Cmd>BufferNext<CR>
+nnoremap gp <Cmd>BufferPrevious<CR>
+nnoremap <leader>d <Cmd>BufferClose<CR>
 
 " vim-slime
 let g:slime_target = "tmux"
@@ -212,17 +223,6 @@ nnoremap <C-r> :NERDTreeFind<CR>
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" barbar.nvim - Tabline
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.animation = v:false
-let bufferline.icons = v:false
-let bufferline.closable = v:false
-let bufferline.tabpages = v:false
-let bufferline.no_name_title = "-"
-let bufferline.icon_separator_active = ''
-let bufferline.icon_separator_inactive = ''
-let bufferline.maximum_padding = 1
 
 augroup highlight_yank
   autocmd!
