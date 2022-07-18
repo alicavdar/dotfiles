@@ -1,5 +1,9 @@
+[user]
+  name = Ali Çavdar
+  email = 779832+alicavdar@users.noreply.github.com
+
 [include]
-  path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
 
 [core]
   pager = delta
@@ -19,10 +23,10 @@
   user = alicavdar
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
