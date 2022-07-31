@@ -200,7 +200,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " fzf
-let $FZF_DEFAULT_COMMAND = 'ag -g ""' " Use ag (the silver searcher as default)
+let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.tgz" -g ""' " Use ag (the silver searcher as default)
 nnoremap <silent> <leader>a :Ag<Space>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :FzfPreviewGitStatusRpc<CR>
