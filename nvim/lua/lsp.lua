@@ -56,6 +56,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>p', vim.lsp.buf.formatting, bufopts)
 end
 
 require("nvim-lsp-installer").setup {
@@ -72,19 +73,23 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local handlers = {
+  ["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false, -- Disable virtual_text
+      signs = false, -- Disable signs
+    }
+  ),
+}
+
 nvim_lsp['tsserver'].setup{
   on_attach = on_attach,
   flags = lsp_flags,
   root_dir = vim.loop.cwd,
-  handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false, -- Disable virtual_text
-        signs = false, -- Disable signs
-      }
-    ),
-  }
+  handlers = handlers,
 }
 
-nvim_lsp['eslint'].setup({});
+nvim_lsp['eslint'].setup({
+  handlers = handlers,
+});
 
