@@ -2,7 +2,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
 cask "alacritty"
-cask "spectacle"
+cask "rectangle"
 cask "keepingyouawake"
 cask "font-fira-code"
 
