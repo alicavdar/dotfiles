@@ -37,3 +37,12 @@
 
 [init]
   defaultBranch = main
+
+[pull]
+  rebase = true
+
+[branch]
+  autosetuprebase = always
+
+[rebase]
+  autostash = true
