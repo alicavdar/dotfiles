@@ -56,7 +56,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<leader>p', vim.lsp.buf.formatting, bufopts)
 end
 
 require("nvim-lsp-installer").setup {

@@ -29,5 +29,6 @@ Plug 'mattn/emmet-vim'
 Plug 'romgrk/barbar.nvim'
 Plug 'jpalardy/vim-slime'
 Plug 'windwp/nvim-autopairs'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 call plug#end()

@@ -59,6 +59,7 @@ let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 set background=dark
 let g:sonokai_transparent_background = 1
 colorscheme sonokai
+highlight Search guibg=peru guifg=wheat
 
 filetype plugin indent on     " Load plugins according to detected filetype
 syntax on                     " Enable syntax highlighting
@@ -232,3 +233,6 @@ augroup END
 
 " vim-vsnip
 imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+
+" vim-prettier
+nmap <Leader>p <Plug>(Prettier)
