@@ -19,6 +19,7 @@ alias config.vim="vim ~/.config/nvim/init.vim"
 alias config.tmux="vim ~/.tmux.conf"
 alias config.alacritty="vim ~/.config/alacritty/alacritty.yml"
 alias config.git="vim ~/.gitconfig"
+alias config.secrets="vim ~/.secrets.sh"
 
 # Vim
 alias vi="nvim"
