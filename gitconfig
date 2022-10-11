@@ -25,6 +25,7 @@
   pul = pull
   ad = add
   commmit = commit
+  puhs = push
 
 [github]
   user = alicavdar
