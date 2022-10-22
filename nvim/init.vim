@@ -183,7 +183,7 @@ let bufferline.insert_at_end = v:true
 
 nnoremap gn <Cmd>BufferNext<CR>
 nnoremap gp <Cmd>BufferPrevious<CR>
-nnoremap <leader>d <Cmd>BufferClose<CR>
+nnoremap <leader>d :bd<CR>
 
 " vim-slime
 let g:slime_target = "tmux"
