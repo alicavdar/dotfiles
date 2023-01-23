@@ -26,6 +26,7 @@
   ad = add
   commmit = commit
   puhs = push
+  branhc = branch
 
 [github]
   user = alicavdar
