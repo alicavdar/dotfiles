@@ -8,10 +8,6 @@ font:
 
   size: 18
 
-cursor:
-  style:
-    blinking: Always
-
 # Colors (Tomorrow Night Bright)
 colors:
   primary:
