@@ -41,6 +41,7 @@ local nvim_lsp = require('lspconfig')
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -49,7 +50,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.keymap.set('n', '<C-e>', vim.lsp.diagnostic.show_line_diagnostics, bufops)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
