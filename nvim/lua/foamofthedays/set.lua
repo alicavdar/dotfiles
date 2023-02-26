@@ -58,4 +58,6 @@ vim.cmd([[
   highlight Search guibg=peru guifg=wheat
 ]])
 
-
+vim.opt.foldlevel = 20 -- Opens all folds when opening a file
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
