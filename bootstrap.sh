@@ -13,9 +13,9 @@ ln -sF $(PWD)/tigrc ~/.tigrc
 ln -sF $(PWD)/gitconfig ~/.gitconfig
 ln -sF $(PWD)/nvim ~/.config/nvim
 
-# Install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# Install packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Install nvm.sh manually since homebrew installation is not supported.
 # See https://github.com/nvm-sh/nvm
