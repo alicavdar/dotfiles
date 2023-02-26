@@ -83,4 +83,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Search for visually selected text
 vim.keymap.set("v", "//", [[ y/\V<C-R>=escape(@",'/\')<CR><CR> ]], { remap = false })
 
+-- Copy current file name (relative/absolute) to system clipboard
+-- Relative path (src/foo.txt)
+vim.keymap.set("n", "<leader>cf", [[ :let @*=expand("%")<CR> ]], { remap = false })
+-- Absolute path (/something/src/foo.txt)
+vim.keymap.set("n", "<leader>cF", [[ :let @*=expand("%:p")<CR> ]], { remap = false })
+-- Filename (foo.txt)
+vim.keymap.set("n", "<leader>ct", [[ :let @*=expand("%:t")<CR> ]], { remap = false })
 
