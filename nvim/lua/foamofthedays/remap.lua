@@ -19,8 +19,8 @@ vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { remap = false })
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>", { remap = false })
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>", { remap = false })
 
-vim.keymap.set("n", "H", "^", { remap = false })
-vim.keymap.set("n", "L", "$", { remap = false })
+vim.keymap.set({ "n", "v" }, "H", "^", { remap = false })
+vim.keymap.set({ "n", "v" }, "L", "$", { remap = false })
 
 -- use `u` to undo, use `U` to redo
 vim.keymap.set("n", "U", "<C-r>", { remap = false })
