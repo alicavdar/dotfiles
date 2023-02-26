@@ -29,9 +29,6 @@ return require('packer').startup(function(use)
     }
   }
 
-  use { 'junegunn/fzf', run = 'fzf#install()' }
-  use 'junegunn/fzf.vim'
-  use { 'yuki-yano/fzf-preview.vim', branch = 'release/rpc' } 
   use 'sainnhe/sonokai'
   use 'tpope/vim-surround'
   use 'numToStr/Comment.nvim'
@@ -43,4 +40,11 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use 'windwp/nvim-autopairs'
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
+
+  use { 'junegunn/fzf', run = 'fzf#install()' }
+  use 'junegunn/fzf.vim'
+  use { 'yuki-yano/fzf-preview.vim', branch = 'release/rpc' } 
+
+  use 'nvim-tree/nvim-web-devicons'
+  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
 end)

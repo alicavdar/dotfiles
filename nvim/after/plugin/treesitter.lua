@@ -19,6 +19,6 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 
-  incremental_selection = { enable = true }
+  incremental_selection = { enable = false },
 }
 
