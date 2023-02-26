@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 -- Easier escape than ESC
 vim.keymap.set("i", "jj", "<ESC>", { remap = false }) 
 
---  Clear search highlighting
+-- Clear search highlighting
 vim.keymap.set("n", "<leader>q", ":nohlsearch<CR>")
 
 -- Fast saving
@@ -60,3 +60,14 @@ vim.keymap.set("i", ".", ".<c-g>u", { remap = false })
 vim.keymap.set("i", "!", "!<c-g>u", { remap = false })
 vim.keymap.set("i", "?", "?<c-g>u", { remap = false })
 vim.keymap.set("i", "<Space>", "<Space><c-g>u", { remap = false })
+
+-- Navigation between buffers
+vim.keymap.set("n", "gn", "<Cmd>BufferNext<CR>", { remap = false })
+vim.keymap.set("n", "gp", "<Cmd>BufferPrevious<CR>", { remap = false })
+vim.keymap.set("n", "<leader>d", "<Cmd>BufferClose<CR>", { remap = false })
+
+-- Resize windows with arrow keys
+vim.keymap.set("n", "<Left>", "<C-w>>", { remap = false })
+vim.keymap.set("n", "<Right>", "<C-w><", { remap = false })
+vim.keymap.set("n", "<Up>", "<C-w>-", { remap = false })
+vim.keymap.set("n", "<Down>", "<C-w>+", { remap = false })
