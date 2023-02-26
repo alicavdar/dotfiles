@@ -46,6 +46,5 @@ return require('packer').startup(function(use)
   use 'junegunn/fzf.vim'
   use { 'yuki-yano/fzf-preview.vim', branch = 'release/rpc' } 
 
-  use 'nvim-tree/nvim-web-devicons'
-  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+  use 'romgrk/barbar.nvim'
 end)
