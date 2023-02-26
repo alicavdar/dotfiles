@@ -4,11 +4,10 @@ lsp.preset('recommended')
 lsp.ensure_installed({ 'tsserver' })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
   enabled = true,
-  preselect = cmp.PreselectMode.Item,
+  preselect = cmp.PreselectMode.None,
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
@@ -22,8 +21,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
