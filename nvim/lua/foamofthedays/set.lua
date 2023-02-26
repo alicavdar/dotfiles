@@ -74,12 +74,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.cmd([[
-  let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
+  " Hide the tilde (~) sign on blank lines
+  let &fcs='eob: '
 
   set background=dark
   let g:sonokai_transparent_background = 1
   colorscheme sonokai
   highlight Search guibg=peru guifg=wheat
 ]])
-
-

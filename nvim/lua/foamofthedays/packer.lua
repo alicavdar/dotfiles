@@ -41,7 +41,6 @@ return require('packer').startup(function(use)
   use 'rhysd/clever-f.vim'
   use 'preservim/nerdtree'
   use 'mattn/emmet-vim'
-  use 'jpalardy/vim-slime'
   use 'windwp/nvim-autopairs'
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
 end)

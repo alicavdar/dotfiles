@@ -75,9 +75,17 @@ vim.keymap.set("n", "<Down>", "<C-w>+", { remap = false })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Do not move cursor after `J`
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Pasta without overriding clipboard
 vim.keymap.set("x", "<C-p>", [["_dP]])
 
+-- Scrolling via CTRL-D and CTRL-U
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Search for visually selected text
+vim.keymap.set("v", "//", [[ y/\V<C-R>=escape(@",'/\')<CR><CR> ]], { remap = false })
+
+
