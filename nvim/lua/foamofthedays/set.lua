@@ -41,6 +41,12 @@ vim.opt.foldlevel = 20 -- Opens all folds when opening a file
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
+-- Completion
+vim.opt.completeopt = { "noinsert", "menuone", "noselect" }
+vim.opt.wildmenu    = true
+vim.opt.wildmode    = "longest:full,full"
+vim.opt.wildoptions = "pum" -- Show completion items using the pop-up-menu (pum)
+vim.opt.pumblend    = 15 -- completion menu transparency
 
 -- Undo history
 vim.opt.undofile = true
@@ -75,4 +81,5 @@ vim.cmd([[
   colorscheme sonokai
   highlight Search guibg=peru guifg=wheat
 ]])
+
 
