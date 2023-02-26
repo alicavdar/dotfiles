@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   use 'windwp/nvim-autopairs'
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
+  use 'mbbill/undotree'
 
   use { 'junegunn/fzf', run = 'fzf#install()' }
   use 'junegunn/fzf.vim'
