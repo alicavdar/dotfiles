@@ -36,6 +36,12 @@ vim.opt.laststatus = 0
 vim.opt.showcmd = false
 vim.opt.showmode = false
 
+-- Folding
+vim.opt.foldlevel = 20 -- Opens all folds when opening a file
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+
 -- Undo history
 vim.opt.undofile = true
 -- vim.opt.undodir = "~/.vim/undo"
@@ -48,7 +54,6 @@ vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
   end,
 })
 
-
 vim.cmd([[
   let &fcs='eob: ' " Hide the tilde (~) sign on blank lines
 
@@ -58,6 +63,3 @@ vim.cmd([[
   highlight Search guibg=peru guifg=wheat
 ]])
 
-vim.opt.foldlevel = 20 -- Opens all folds when opening a file
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
