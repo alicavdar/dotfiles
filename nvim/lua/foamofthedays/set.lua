@@ -2,7 +2,8 @@ vim.opt.updatetime = 50
 vim.opt.number  = true			-- Show line numbers
 vim.opt.relativenumber = true		-- Enable relative numbers
 vim.opt.smartcase = true		-- When searching try to be smart about cases
-vim.opt.ignorecase = true		-- Ignore case of searches vim.opt.hlsearch = false		-- Don't highlight searches
+vim.opt.ignorecase = true		-- Ignore case of searches
+vim.opt.hlsearch = false		-- Don't highlight searches
 vim.opt.incsearch = true		-- Show search matches when typing
 vim.opt.backup = false			-- Don't create backup files
 vim.opt.swapfile = false		-- Don't use swap files
