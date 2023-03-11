@@ -29,6 +29,12 @@ return require('packer').startup(function(use)
     }
   }
 
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+  -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use 'sainnhe/sonokai'
   use 'tpope/vim-surround'
   use 'numToStr/Comment.nvim'
@@ -41,10 +47,5 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
   use 'mbbill/undotree'
-
-  use { 'junegunn/fzf', run = 'fzf#install()' }
-  use 'junegunn/fzf.vim'
-  use { 'yuki-yano/fzf-preview.vim', branch = 'release/rpc' } 
-
   use 'romgrk/barbar.nvim'
 end)
