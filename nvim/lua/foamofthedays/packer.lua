@@ -1,7 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
 
--- Plug 'ray-x/lsp_signature.nvim'
-
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -54,4 +52,5 @@ return require('packer').startup(function(use)
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
   use 'mbbill/undotree'
   use 'romgrk/barbar.nvim'
+  use 'ray-x/lsp_signature.nvim'
 end)
