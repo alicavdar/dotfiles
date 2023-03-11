@@ -19,6 +19,22 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 
-  incremental_selection = { enable = false },
+  textobjects = {
+    move = {
+      enable = true,
+
+      set_jumps = true, -- whether to set jumps in the jumplist
+
+      goto_next_start = {
+        ["+"] = "@function.outer",
+        ["]]"] = { query = "@class.outer", desc = "Next class start" },
+      },
+
+      goto_previous_start = {
+        ["_"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+    },
+  },
 }
 
