@@ -47,6 +47,8 @@ export FZF_DEFAULT_OPTS='
   --color=gutter:-1,bg:-1,hl:#ecc518
 '
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
