@@ -34,4 +34,5 @@ brew "httpie"
 brew "watch"
 brew "lazygit"
 brew "fzf"
+brew "ncdu"
 
