@@ -20,16 +20,19 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-  }, {
-    { name = 'buffer' },
+
+    -- Don't suggest Text from nvm_lsp
+    {
+      name = "nvim_lsp",
+      entry_filter = function(entry, ctx)
+        return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+      end
+    },
   })
 })
 
@@ -41,10 +44,14 @@ cmp.setup.cmdline('/', {
   }
 })
 
+lsp.set_preferences({
+  suggest_lsp_servers = false,
+})
+
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
-  vim.keymap.set('n', '<C-e>', function() vim.lsp.diagnostic.show_line_diagnostics() end, opts)
+  vim.keymap.set('n', '<C-e>', function() vim.diagnostic.open_float() end, opts)
   vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
   vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
@@ -62,3 +69,4 @@ vim.diagnostic.config({
   virtual_text = false,
   signs = false,
 })
+
