@@ -19,6 +19,14 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<c-space>',
+      node_incremental = '<c-space>',
+    },
+  },
+
   textobjects = {
     move = {
       enable = true,
