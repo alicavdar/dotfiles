@@ -80,5 +80,5 @@ vim.cmd([[
   set background=dark
   let g:sonokai_transparent_background = 1
   colorscheme sonokai
-  highlight Search guibg=peru guifg=wheat
+  highlight CleverFDefaultLabel guibg=black guifg=red
 ]])
