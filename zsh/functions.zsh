@@ -35,3 +35,8 @@ function link_nvm() {
 function ip() {
   curl -s ipinfo.io | jq .ip | tr -d \"
 }
+
+
+function ipc() {
+  ip | pbcopy
+}
