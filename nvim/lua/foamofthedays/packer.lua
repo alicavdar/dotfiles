@@ -53,4 +53,5 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'romgrk/barbar.nvim'
   use 'ray-x/lsp_signature.nvim'
+  use 'stevearc/aerial.nvim'
 end)
