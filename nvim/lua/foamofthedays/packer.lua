@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use { 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production' }
   use 'mbbill/undotree'
-  use 'romgrk/barbar.nvim'
+  -- use 'romgrk/barbar.nvim'
   use 'ray-x/lsp_signature.nvim'
   use 'stevearc/aerial.nvim'
 end)
