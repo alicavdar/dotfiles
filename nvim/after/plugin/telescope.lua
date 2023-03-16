@@ -1,4 +1,15 @@
+local telescope = require("telescope")
 local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
+
+telescope.setup({
+  defaults = {
+    mappings = {
+      i = { ["<ESC>"] = actions.close },
+      n = { ["<ESC>"] = actions.close }
+    }
+  }
+})
 
 -- Enable line numbers
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
