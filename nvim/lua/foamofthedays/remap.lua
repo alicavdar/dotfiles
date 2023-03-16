@@ -74,7 +74,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Pasta without overriding clipboard
--- vim.keymap.set("x", "<C-p>", [["_dP]])
+vim.keymap.set("x", "<C-p>", [["_dP]])
 
 -- Scrolling via CTRL-D and CTRL-U
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
