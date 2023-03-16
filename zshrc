@@ -9,7 +9,11 @@ source "$HOME/.zsh/completion.zsh"
 source "$HOME/.zsh/alias.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/functions.zsh"
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.secrets.sh ] && source ~/.secrets.sh
 
 autoload -Uz zcalc
 
@@ -38,7 +42,6 @@ setopt share_history          # Share history data between sessions
 eval "$(jump shell --bind=z)"
 
 # zsh-syntax-highligting without underlines
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
@@ -49,15 +52,9 @@ export FZF_DEFAULT_OPTS='
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Load FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Grep
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32' # Bright green
-
-# Load secrets
-[ -f ~/.secrets.sh ] && source ~/.secrets.sh
 
 # Go
 export GOPATH=$HOME/go
