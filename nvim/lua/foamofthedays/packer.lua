@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-vinegar'
   use 'wellle/targets.vim'
   use 'rhysd/clever-f.vim'
   use 'preservim/nerdtree'
