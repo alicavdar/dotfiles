@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp.preset('minimal')
 lsp.ensure_installed({ 'tsserver' })
 
 local cmp = require('cmp')
@@ -9,7 +9,7 @@ cmp.setup({
   enabled = true,
   preselect = cmp.PreselectMode.None,
   completion = {
-    completeopt = 'menu,menuone,noinsert'
+    completeopt = 'menu,menuone,noinsert,noselect'
   },
   snippet = {
     -- REQUIRED - you must specify a snippet engine
