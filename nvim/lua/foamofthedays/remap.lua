@@ -14,6 +14,10 @@ vim.keymap.set("n", "<leader>w", ":w!<CR>")
 vim.keymap.set("n", "<leader>e", ":e#<CR>")
 vim.keymap.set("n", "<tab>", ":e#<CR>")
 
+vim.keymap.set("n", "<leader>d", "<cmd>bd<cr>")
+vim.keymap.set("n", "gn", "<cmd>bnext<cr>")
+vim.keymap.set("n", "gp", "<cmd>bprev<cr>")
+
 -- Easy navigation between windows
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { remap = false })
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>", { remap = false })
