@@ -1,0 +1,21 @@
+local telescope = require("telescope")
+local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
+
+telescope.setup({
+  defaults = {
+    mappings = {
+      i = { ["<ESC>"] = actions.close },
+      n = { ["<ESC>"] = actions.close }
+    }
+  }
+})
+
+-- Enable line numbers
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+
+vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>a", builtin.live_grep)
+vim.keymap.set("n", "<leader>g", builtin.git_status)
+vim.keymap.set("n", "<leader>t", builtin.filetypes)
+vim.keymap.set("n", "<C-p>", builtin.buffers)
