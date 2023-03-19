@@ -95,3 +95,5 @@ vim.keymap.set("n", "<leader>ct", [[ :let @*=expand("%:t")<CR> ]], { remap = fal
 -- Moving the cursor through long soft-wrapped lines
 vim.api.nvim_command([[ nnoremap <expr> k (v:count == 0 ? 'gk' : 'k') ]])
 vim.api.nvim_command([[ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j') ]])
+
+vim.keymap.set("n", "<Space><Space>", ":lua print(vim.fn.expand('%'))<CR>")
