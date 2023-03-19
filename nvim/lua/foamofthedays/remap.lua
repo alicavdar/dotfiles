@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>w", ":w!<CR>")
 
 -- Switch between last visited buffers
 vim.keymap.set("n", "<leader>e", ":e#<CR>")
+vim.keymap.set("n", "<tab>", ":e#<CR>")
 
 -- Easy navigation between windows
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>", { remap = false })
