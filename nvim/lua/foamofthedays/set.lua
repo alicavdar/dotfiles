@@ -50,7 +50,7 @@ vim.opt.pumblend    = 15 -- completion menu transparency
 
 -- Undo history
 vim.opt.undofile = true
--- vim.opt.undodir = "~/.vim/undo"
+vim.opt.undodir  = vim.fn.expand('~/.vim/undo')
 
 -- Return to last edit position when opening files
 vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
