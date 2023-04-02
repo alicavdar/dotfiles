@@ -45,6 +45,11 @@ lsp.set_preferences({
   suggest_lsp_servers = false,
 })
 
+local function zz(func_param)
+  func_param()
+  vim.api.nvim_feedkeys("zz", "n", false)
+end
+
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
@@ -55,8 +60,9 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+  vim.keymap.set('n', 'g[', function() zz(vim.diagnostic.goto_prev) end, opts)
+  vim.keymap.set('n', 'g]', function() zz(vim.diagnostic.goto_next) end, opts)
 end)
 
 
