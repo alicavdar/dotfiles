@@ -17,17 +17,12 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
     end,
   },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
   mapping = cmp.mapping.preset.insert({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item()
   }),
   sources = cmp.config.sources({
-
     -- Don't suggest Text from nvm_lsp
     {
       name = "nvim_lsp",
