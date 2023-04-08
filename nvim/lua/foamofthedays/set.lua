@@ -11,7 +11,7 @@ vim.opt.hidden = true			-- Switch between buffers without having to save first
 vim.opt.smarttab = true			-- Enable smarttab
 vim.opt.autoread = true			-- Auto refresh if the file has been changed outside of VIM
 vim.opt.wildmenu = true			-- Enhance command-line completion
-vim.opt.cursorline = false		-- Hide cursorline
+vim.opt.cursorline = true		-- Hide cursorline
 vim.opt.linebreak = true		-- Break long lines by word, not char
 vim.opt.scroll = 10			-- Number of lines to scroll with ^U/^D
 vim.opt.splitright = true		-- Open new windows below the current window.
@@ -85,4 +85,5 @@ vim.cmd([[
   highlight NormalFloat guibg=NONE guifg=#a2c44f
   highlight ErrorFloat guibg=NONE guifg=#a2c44f
   highlight HintFloat guibg=NONE guifg=#a2c44f
+  highlight CursorLine guibg=#1b1b1c
 ]])
