@@ -24,6 +24,7 @@
   plul = pull
   pul = pull
   ad = add
+  comit = commit
   commmit = commit
   puhs = push
   branhc = branch
