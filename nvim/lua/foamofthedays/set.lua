@@ -86,4 +86,10 @@ vim.cmd([[
   highlight ErrorFloat guibg=NONE guifg=#a2c44f
   highlight HintFloat guibg=NONE guifg=#a2c44f
   highlight CursorLine guibg=#1b1b1c
+
+  augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave *.* mkview
+    autocmd BufWinEnter *.* silent! loadview
+  augroup END
 ]])
