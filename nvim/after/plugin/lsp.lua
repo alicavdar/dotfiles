@@ -3,6 +3,9 @@ local lsp = require('lsp-zero')
 lsp.preset('minimal')
 lsp.ensure_installed({ 'tsserver' })
 
+-- Fixes "Undefined global vim warnings"
+lsp.nvim_workspace()
+
 local cmp = require('cmp')
 
 cmp.setup({
@@ -64,7 +67,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'g[', function() zz(vim.diagnostic.goto_prev) end, opts)
   vim.keymap.set('n', 'g]', function() zz(vim.diagnostic.goto_next) end, opts)
 end)
-
 
 lsp.setup()
 
