@@ -1,4 +1,4 @@
-mcd () {
+mcd() {
   mkdir -p "$1" && cd "$1"
 }
 
@@ -11,7 +11,7 @@ function package() {
   cat package.json | jq .$1
 }
 
-function delete-branches() {
+function delete_branches() {
   git branch |
     grep --invert-match '\*' |
     cut -c 3- |
