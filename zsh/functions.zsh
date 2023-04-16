@@ -36,7 +36,14 @@ function ip() {
   curl -s ipinfo.io | jq .ip | tr -d \"
 }
 
-
 function ipc() {
   ip | pbcopy
+}
+
+function docker_start() {
+  open -a Docker
+}
+
+function docker_quit() {
+  osascript -e 'quit app "Docker"'
 }
