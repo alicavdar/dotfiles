@@ -60,3 +60,4 @@ export GREP_COLOR='1;32' # Bright green
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export PATH="$HOME/bin:$PATH"

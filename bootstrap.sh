@@ -1,3 +1,4 @@
+mkdir ~/bin
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/lazygit
 mkdir -p ~/.vim/undo
@@ -14,6 +15,7 @@ ln -sF $(PWD)/tigrc ~/.tigrc
 ln -sF $(PWD)/gitconfig ~/.gitconfig
 ln -sF $(PWD)/nvim ~/.config/nvim
 ln -sF $(PWD)/lazygit.yml ~/.config/lazygit/config.yml
+ln -sF $(PWD)/bin/edit-tmux-output.sh ~/bin/edit-tmux-output
 
 # Install packer.nvim
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
