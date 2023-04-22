@@ -19,6 +19,7 @@ vim.opt.splitbelow = true		-- Open new windows right of the current window.
 vim.opt.signcolumn = "yes"		-- Always show the sign column
 vim.opt.termguicolors = true		-- Enable true colors
 vim.opt.shortmess:append("c")		-- Don't pass messages to |ins-completion-menu|
+vim.opt.shortmess:append("I")		-- Hide NVIM's intro message
 vim.opt.mouse = "a"			-- Enable mouse
 vim.opt.clipboard = "unnamed"		-- Yank to system clipboard
 vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
