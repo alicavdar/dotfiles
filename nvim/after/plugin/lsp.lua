@@ -9,7 +9,13 @@ lsp.nvim_workspace()
 local cmp = require('cmp')
 
 cmp.setup({
-  enabled = true,
+  enabled = function()
+    if vim.bo.buftype == "prompt" then
+      return false
+    end
+
+    return true
+  end,
   preselect = cmp.PreselectMode.None,
   completion = {
     completeopt = 'menu,menuone,noinsert,noselect'
