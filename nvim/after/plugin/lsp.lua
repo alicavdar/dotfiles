@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('minimal')
+lsp.preset('recommended')
 lsp.ensure_installed({ 'tsserver' })
 
 -- Fixes "Undefined global vim warnings"
