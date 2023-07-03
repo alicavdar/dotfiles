@@ -38,27 +38,6 @@ vim.keymap.set("n", "*", "*zz", { remap = false })
 -- Behave like D and C
 vim.keymap.set("n", "Y", "y$", { remap = false })
 
--- Fixing some annoying typos I often do
--- Such as "q:" instead of ":q"
-vim.keymap.set("c", "q:", ":q", { remap = false })
-vim.keymap.set("c", "Q!", "q!", { remap = false })
-vim.keymap.set("c", "Q", "q", { remap = false })
-vim.keymap.set("c", "q1", "q!", { remap = false })
-vim.keymap.set("c", "W!", "w!", { remap = false })
-vim.keymap.set("c", "Q", "q", { remap = false })
-vim.keymap.set("c", "W", "w", { remap = false })
-vim.keymap.set("c", "Wq", "wq", { remap = false })
-vim.keymap.set("c", "Wa", "wa", { remap = false })
-vim.keymap.set("c", "Qa", "qa", { remap = false })
-vim.keymap.set("c", "QA", "qa", { remap = false })
-vim.keymap.set("c", "Bd", "bd", { remap = false })
-vim.keymap.set("c", "bD", "bd", { remap = false })
-vim.keymap.set("c", "BD", "bd", { remap = false })
-vim.keymap.set("c", "Bd!", "bd!", { remap = false })
-vim.keymap.set("c", "bD!", "bd!", { remap = false })
-vim.keymap.set("c", "BD!", "bd!", { remap = false })
-vim.keymap.set("c", "E!", "e!", { remap = false })
-
 -- Undo break points
 vim.keymap.set("i", ",", ",<c-g>u", { remap = false })
 vim.keymap.set("i", ".", ".<c-g>u", { remap = false })
