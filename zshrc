@@ -18,7 +18,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -Uz zcalc
 
 # zsh vim mode
-bindkey jj vi-cmd-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 
