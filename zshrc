@@ -60,4 +60,7 @@ export GREP_COLOR='1;32' # Bright green
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Python
+PATH=$(pyenv root)/shims:$PATH
+
 export PATH="$HOME/bin:$PATH"
