@@ -11,8 +11,7 @@ vim.keymap.set("n", "<leader>q", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>w", ":w!<CR>")
 
 -- Switch between last visited buffers
-vim.keymap.set("n", "<leader>e", ":e#<CR>")
-vim.keymap.set("n", "<tab>", ":e#<CR>")
+vim.keymap.set("n", "<tab>", "<C-S-^>")
 
 vim.keymap.set("n", "<leader>d", "<cmd>bd<cr>")
 vim.keymap.set("n", "gn", "<cmd>bnext<cr>")
