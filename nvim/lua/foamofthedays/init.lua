@@ -1,2 +1,5 @@
-require("foamofthedays.set")
-require("foamofthedays.remap")
+vim.g.mapleader = " "
+
+require("foamofthedays.plugins")
+require("foamofthedays.options")
+require("foamofthedays.mappings")

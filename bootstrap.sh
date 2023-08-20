@@ -17,10 +17,6 @@ ln -sF $(PWD)/nvim ~/.config/nvim
 ln -sF $(PWD)/lazygit.yml ~/.config/lazygit/config.yml
 ln -sF $(PWD)/bin/edit-tmux-output.sh ~/bin/edit-tmux-output
 
-# Install packer.nvim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 # Install nvm.sh manually since homebrew installation is not supported.
 # See https://github.com/nvm-sh/nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash

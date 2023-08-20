@@ -1,6 +1,3 @@
--- Space as the leader
-vim.g.mapleader = " "
-
 -- Easier escape than ESC
 vim.keymap.set("i", "jj", "<ESC>", { remap = false }) 
 
