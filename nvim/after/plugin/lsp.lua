@@ -1,7 +1,9 @@
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
-lsp.ensure_installed({ 'tsserver' })
+lsp.ensure_installed({
+ 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls'
+})
 
 -- Fixes "Undefined global vim warnings"
 lsp.nvim_workspace()
@@ -10,6 +12,7 @@ local cmp = require('cmp')
 
 cmp.setup({
   enabled = function()
+    -- Disable auto completion on prompts such as Telescope file search
     if vim.bo.buftype == "prompt" then
       return false
     end
@@ -35,7 +38,7 @@ cmp.setup({
     -- Don't suggest Text from nvm_lsp
     {
       name = "nvim_lsp",
-      entry_filter = function(entry, ctx)
+      entry_filter = function(entry)
         return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
       end
     },
@@ -74,6 +77,7 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
