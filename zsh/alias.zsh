@@ -9,6 +9,7 @@ alias calc="zcalc"
 alias lg="lazygit"
 alias du="ncdu"
 alias eto="edit-tmux-output"
+alias cat="bat --style=plain"
 
 # Config
 alias config.zsh="vim ~/.zshrc"
