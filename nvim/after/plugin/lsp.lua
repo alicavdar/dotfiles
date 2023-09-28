@@ -2,7 +2,7 @@ local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 lsp.ensure_installed({
- 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls'
+ 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls', 'elixirls'
 })
 
 -- Fixes "Undefined global vim warnings"
