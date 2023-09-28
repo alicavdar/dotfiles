@@ -56,6 +56,7 @@ require('lazy').setup({
 
   'sainnhe/sonokai',
   'tpope/vim-surround',
+  'tpope/vim-sleuth',
   'numToStr/Comment.nvim',
   'tpope/vim-fugitive',
   'wellle/targets.vim',
@@ -65,6 +66,6 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'mbbill/undotree',
   'ray-x/lsp_signature.nvim',
-  'stevearc/aerial.nvim'
+  'stevearc/aerial.nvim',
 })
 
