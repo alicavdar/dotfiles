@@ -10,10 +10,8 @@ vim.opt.swapfile = false		-- Don't use swap files
 vim.opt.hidden = true			-- Switch between buffers without having to save first
 vim.opt.smarttab = true			-- Enable smarttab
 vim.opt.autoread = true			-- Auto refresh if the file has been changed outside of VIM
-vim.opt.wildmenu = true			-- Enhance command-line completion
 vim.opt.cursorline = true		-- Show cursorline
 vim.opt.linebreak = true		-- Break long lines by word, not char
-vim.opt.scroll = 5			-- Number of lines to scroll with ^U/^D
 vim.opt.splitright = true		-- Open new windows below the current window.
 vim.opt.splitbelow = true		-- Open new windows right of the current window.
 vim.opt.signcolumn = "yes"		-- Always show the sign column
@@ -24,6 +22,7 @@ vim.opt.mouse = "a"			-- Enable mouse
 vim.opt.clipboard = "unnamed"		-- Yank to system clipboard
 vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
 
+-- Indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true   -- Indent according to previous line
 vim.opt.expandtab =  true   -- Use spaces instead of tabs
@@ -36,6 +35,10 @@ vim.opt.ruler = false
 vim.opt.laststatus = 0
 vim.opt.showcmd = false
 vim.opt.showmode = false
+
+-- Number of lines to scroll with ^U/^D
+-- Somehow, the options for the status bar override this if they are defined beforehand
+vim.opt.scroll = 10
 
 -- Folding
 vim.opt.foldlevel = 20 -- Opens all folds when opening a file
