@@ -52,8 +52,6 @@ require('lazy').setup({
     }
   },
 
-  { 'prettier/vim-prettier', build = 'yarn install --frozen-lockfile --production' },
-
   'sainnhe/sonokai',
   'tpope/vim-surround',
   'tpope/vim-sleuth',
@@ -67,5 +65,6 @@ require('lazy').setup({
   'mbbill/undotree',
   'ray-x/lsp_signature.nvim',
   'stevearc/aerial.nvim',
+  'sbdchd/neoformat',
 })
 

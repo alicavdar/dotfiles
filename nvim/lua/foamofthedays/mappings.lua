@@ -77,3 +77,6 @@ vim.api.nvim_command([[ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j') ]])
 
 -- Reveal the file path of the current buffer
 vim.keymap.set("n", "<Space><Space>", ":lua print(vim.fn.expand('%'))<CR>")
+
+-- Format the current buffer
+vim.keymap.set("n", "<Leader>p", ":Neoformat<CR>")
