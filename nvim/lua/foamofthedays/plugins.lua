@@ -52,11 +52,12 @@ require('lazy').setup({
     }
   },
 
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb', -- Github extension for vim-fugitive
   'sainnhe/sonokai',
   'tpope/vim-surround',
   'tpope/vim-sleuth',
   'numToStr/Comment.nvim',
-  'tpope/vim-fugitive',
   'wellle/targets.vim',
   'rhysd/clever-f.vim',
   'preservim/nerdtree',
