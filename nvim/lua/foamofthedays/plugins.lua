@@ -52,15 +52,17 @@ require('lazy').setup({
     }
   },
 
+  'sainnhe/sonokai', -- Colorscheme
+
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb', -- Github extension for vim-fugitive
-  'sainnhe/sonokai',
+  'tpope/vim-vinegar',
   'tpope/vim-surround',
   'tpope/vim-sleuth',
+
   'numToStr/Comment.nvim',
   'wellle/targets.vim',
   'rhysd/clever-f.vim',
-  'preservim/nerdtree',
   'mattn/emmet-vim',
   'windwp/nvim-autopairs',
   'mbbill/undotree',
