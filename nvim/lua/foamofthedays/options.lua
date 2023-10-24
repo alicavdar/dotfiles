@@ -21,6 +21,7 @@ vim.opt.shortmess:append("I")		-- Hide NVIM's intro message
 vim.opt.mouse = "a"			-- Enable mouse
 vim.opt.clipboard = "unnamed"		-- Yank to system clipboard
 vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
+vim.opt.scrolloff = 5			-- Always show at least 5 lines above/below the cursor
 
 -- Indentation
 vim.opt.smartindent = true
