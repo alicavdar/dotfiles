@@ -22,6 +22,7 @@ vim.keymap.set("n", "<leader>a", extensions.live_grep_args.live_grep_args)
 vim.keymap.set("n", "<leader>g", builtin.git_status)
 vim.keymap.set("n", "<leader>t", builtin.filetypes)
 vim.keymap.set("n", "<C-p>", builtin.buffers)
+vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = { "*" },
