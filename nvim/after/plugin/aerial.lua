@@ -1,5 +1,5 @@
 require('aerial').setup({
-  filter_kind = false,
+  filter_kind = { "Class", "Function", "Module", "Method" },
 
   layout = { min_width = 0.35 }
 })
