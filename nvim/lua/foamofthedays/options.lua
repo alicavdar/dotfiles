@@ -22,6 +22,8 @@ vim.opt.mouse = "a"			-- Enable mouse
 vim.opt.clipboard = "unnamed"		-- Yank to system clipboard
 vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
 vim.opt.scrolloff = 5			-- Always show at least 5 lines above/below the cursor
+vim.opt.fillchars = "eob: "		-- Hide the tilde (~) sign on blank lines
+
 
 -- Indentation
 vim.opt.smartindent = true
@@ -57,18 +59,7 @@ vim.opt.pumblend    = 15 -- completion menu transparency
 vim.opt.undofile = true
 vim.opt.undodir  = vim.fn.expand('~/.vim/undo')
 
--- Return to last edit position when opening files
-vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
-  pattern = { '*' },
-  callback = function()
-    vim.api.nvim_exec('silent! normal! g`"zv', false)
-  end,
-})
-
 vim.cmd([[
-  " Hide the tilde (~) sign on blank lines
-  let &fcs='eob: '
-
   set background=dark
   let g:sonokai_transparent_background = 1
   colorscheme sonokai
@@ -85,4 +76,12 @@ vim.cmd([[
     autocmd BufWinEnter *.* silent! loadview
   augroup END
 ]])
+
+-- Return to last edit position when opening files
+vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
+  pattern = { '*' },
+  callback = function()
+    vim.api.nvim_exec('silent! normal! g`"zv', false)
+  end,
+})
 
