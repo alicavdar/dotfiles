@@ -39,14 +39,7 @@ alias la="gls -lAFh --color --group-directories-first" # long list, show almost 
 alias gs="git status"
 alias gst="git status"
 alias gco="git checkout"
-alias gcob="git checkout -b"
 alias gd="git diff"
-alias gb="git branch"
-alias gbd="git branch -D"
-alias gsl="git stash list"
-alias gss="git stash save"
-alias gsa="git stash apply"
-alias gsd="git stash drop"
 
 # Tmux
 alias tn="tmux new -s"
