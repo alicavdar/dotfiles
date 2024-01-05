@@ -37,8 +37,8 @@ require('lazy').setup({
       {'hrsh7th/cmp-cmdline'},  -- Optional
 
       -- Snippets
-      { 'hrsh7th/vim-vsnip' }, -- Required
-      { 'hrsh7th/vim-vsnip-integ' }, -- Required
+      {'hrsh7th/vim-vsnip'}, -- Required
+      {'hrsh7th/vim-vsnip-integ'}, -- Required
       {'rafamadriz/friendly-snippets'}, -- Optional
     }
   },
