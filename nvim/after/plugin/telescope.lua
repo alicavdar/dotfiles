@@ -23,6 +23,7 @@ vim.keymap.set("n", "<leader>g", builtin.git_status)
 vim.keymap.set("n", "<leader>t", builtin.filetypes)
 vim.keymap.set("n", "<C-p>", builtin.buffers)
 vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
+vim.keymap.set("n", "<leader>r", builtin.registers)
 
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = { "*" },
