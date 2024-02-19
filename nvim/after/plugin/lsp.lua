@@ -1,79 +1,19 @@
-local lsp = require('lsp-zero')
+local cmp = require("cmp")
+local cmp_lsp = require("cmp_nvim_lsp")
 
-lsp.preset('recommended')
-lsp.ensure_installed({
-  'gopls', 'html', 'eslint', 'tsserver',
-  'lua_ls', 'elixirls', 'tailwindcss',
-})
-
--- Fixes "Undefined global vim warnings"
-lsp.nvim_workspace()
-
-local cmp = require('cmp')
-
-cmp.setup({
-  enabled = function()
-    -- Disable auto completion on prompts such as Telescope file search
-    if vim.bo.buftype == "prompt" then
-      return false
-    end
-
-    return true
-  end,
-  preselect = cmp.PreselectMode.None,
-  completion = {
-    completeopt = 'menu,menuone,noinsert,noselect'
-  },
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item()
-  }),
-  sources = cmp.config.sources({
-    -- Don't suggest Text from nvm_lsp
-    {
-      name = "nvim_lsp",
-      entry_filter = function(entry)
-        return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
-      end
-    },
-  })
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-})
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  {},
+  vim.lsp.protocol.make_client_capabilities(),
+  cmp_lsp.default_capabilities()
+)
 
 local function zz(func_param)
   func_param()
   vim.api.nvim_feedkeys("zz", "n", false)
 end
 
-lsp.on_attach(function(client, bufnr)
+local function on_attach(_client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, opts)
@@ -87,12 +27,65 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', 'g[', function() zz(vim.diagnostic.goto_prev) end, opts)
   vim.keymap.set('n', 'g]', function() zz(vim.diagnostic.goto_next) end, opts)
-end)
+end
 
-lsp.setup()
+require("fidget").setup({})
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    'gopls', 'html', 'eslint', 'tsserver',
+    'lua_ls', 'elixirls', 'tailwindcss',
+  },
+  handlers = {
+    function(server_name)
+      require("lspconfig")[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
+    end,
+  }
+})
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item()
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' }, -- For luasnip users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` and `?` 
+-- This won't work when `native_menu` is enabled
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' 
+-- This won't work when `native_menu` is enabled
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 vim.diagnostic.config({
   virtual_text = true,
   signs = false,
 })
-
