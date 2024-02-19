@@ -59,24 +59,6 @@ vim.opt.pumblend    = 15 -- completion menu transparency
 vim.opt.undofile = true
 vim.opt.undodir  = vim.fn.expand('~/.vim/undo')
 
-vim.cmd([[
-  set background=dark
-  let g:sonokai_transparent_background = 1
-  colorscheme sonokai
-  highlight CleverFDefaultLabel guibg=NONE guifg=red
-  highlight FloatBorder guibg=NONE guifg=#a2c44f
-  highlight NormalFloat guibg=NONE guifg=#a2c44f
-  highlight ErrorFloat guibg=NONE guifg=#a2c44f
-  highlight HintFloat guibg=NONE guifg=#a2c44f
-  highlight CursorLine guibg=#1b1b1c
-
-  augroup remember_folds
-    autocmd!
-    autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent! loadview
-  augroup END
-]])
-
 -- Return to last edit position when opening files
 vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
   pattern = { '*' },
@@ -84,4 +66,3 @@ vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
     vim.api.nvim_exec('silent! normal! g`"zv', false)
   end,
 })
-

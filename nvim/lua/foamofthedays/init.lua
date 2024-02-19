@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
 
-require("foamofthedays.plugins")
+require("foamofthedays.lazy")
 require("foamofthedays.options")
 require("foamofthedays.mappings")
