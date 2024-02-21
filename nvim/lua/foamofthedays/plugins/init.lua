@@ -6,5 +6,4 @@ return {
   "wellle/targets.vim",
   "mattn/emmet-vim",
   "windwp/nvim-autopairs",
-  "sbdchd/neoformat",
 }
