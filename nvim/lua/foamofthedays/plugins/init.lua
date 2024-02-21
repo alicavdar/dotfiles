@@ -5,5 +5,4 @@ return {
   "tpope/vim-sleuth",
   "wellle/targets.vim",
   "mattn/emmet-vim",
-  "windwp/nvim-autopairs",
 }
