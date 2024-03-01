@@ -8,13 +8,20 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
-    "L3MON4D3/LuaSnip",
+    {
+      "L3MON4D3/LuaSnip",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      config = function ()
+        require("luasnip.loaders.from_vscode").load()
+      end
+    },
     "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
   },
   config = function()
     local cmp = require("cmp")
     local cmp_lsp = require("cmp_nvim_lsp")
+    local luasnip = require("luasnip")
 
     local capabilities = vim.tbl_deep_extend(
       "force",
@@ -80,11 +87,12 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          luasnip.lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true })
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-j>"] = cmp.mapping(function() luasnip.expand() end, { "i" }),
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
