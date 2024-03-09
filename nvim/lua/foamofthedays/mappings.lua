@@ -1,5 +1,5 @@
 -- Easier escape than ESC
-vim.keymap.set("i", "jj", "<ESC>", { remap = false }) 
+vim.keymap.set("i", "jj", "<ESC>", { remap = false })
 
 -- Clear search highlighting
 vim.keymap.set("n", "<leader>q", ":nohlsearch<CR>")
@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>w", ":w!<CR>")
 -- Switch between last visited buffers
 vim.keymap.set("n", "<tab>", "<C-S-^>")
 
+-- Buffer navigation
 vim.keymap.set("n", "<leader>d", "<cmd>bd<cr>")
 vim.keymap.set("n", "gn", "<cmd>bnext<cr>")
 vim.keymap.set("n", "gp", "<cmd>bprev<cr>")
@@ -47,14 +48,12 @@ vim.keymap.set("n", "<Right>", "<C-w><", { remap = false })
 vim.keymap.set("n", "<Up>", "<C-w>-", { remap = false })
 vim.keymap.set("n", "<Down>", "<C-w>+", { remap = false })
 
+-- Move selected lines visually
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Do not move cursor after `J`
 vim.keymap.set("n", "J", "mzJ`z")
-
--- Pasta without overriding clipboard
--- vim.keymap.set("x", "<C-p>", [["_dP]])
 
 -- Scrolling via CTRL-D and CTRL-U
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

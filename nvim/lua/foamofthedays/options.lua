@@ -1,5 +1,5 @@
 vim.opt.updatetime = 50
-vim.opt.number  = true			-- Show line numbers
+vim.opt.number = true			-- Show line numbers
 vim.opt.relativenumber = true		-- Enable relative numbers
 vim.opt.smartcase = true		-- When searching try to be smart about cases
 vim.opt.ignorecase = true		-- Ignore case of searches
@@ -24,13 +24,12 @@ vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
 vim.opt.scrolloff = 5			-- Always show at least 5 lines above/below the cursor
 vim.opt.fillchars = "eob: "		-- Hide the tilde (~) sign on blank lines
 
-
 -- Indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true   -- Indent according to previous line
 vim.opt.expandtab =  true   -- Use spaces instead of tabs
 vim.opt.softtabstop = 2     -- Tab key indents by 2 spaces
-vim.opt.shiftwidth= 2       -- indents by 2 spaces
+vim.opt.shiftwidth = 2      -- indents by 2 spaces
 vim.opt.shiftround = true   -- >> indents to next multiple of 'shiftwidth'
 
 -- Hide status bar
@@ -40,7 +39,7 @@ vim.opt.showcmd = false
 vim.opt.showmode = false
 
 -- Number of lines to scroll with ^U/^D
--- Somehow, the options for the status bar override this if they are defined beforehand
+-- Somehow, the options for the status bar override this if it's defined beforehand
 vim.opt.scroll = 10
 
 -- Folding
