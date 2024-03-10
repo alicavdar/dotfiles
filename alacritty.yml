@@ -14,10 +14,6 @@ colors:
     background: '0x000000'
     foreground: '0xeaeaea'
 
-  # Cursor
-    text: '0x000000'
-    cursor: '0xffffff'
-
   # Normal colors
   normal:
     black:   '0x000000'
