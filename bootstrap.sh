@@ -7,7 +7,7 @@ mkdir -p ~/code
 # Disable "last login" message on terminal
 touch ~/.hushlogin
 
-ln -sF $(PWD)/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sF $(PWD)/alacritty.toml ~/.config/alacritty/alacritty.toml
 ln -sF $(PWD)/zshrc ~/.zshrc
 ln -sF $(PWD)/zsh ~/.zsh
 ln -sF $(PWD)/tmux.conf ~/.tmux.conf
