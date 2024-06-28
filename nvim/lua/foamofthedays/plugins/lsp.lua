@@ -30,11 +30,6 @@ return {
       cmp_lsp.default_capabilities()
     )
 
-    local function zz(func_param)
-      func_param()
-      vim.api.nvim_feedkeys("zz", "n", false)
-    end
-
     local function on_attach(_client, bufnr)
       local opts = {buffer = bufnr, remap = false}
 
@@ -47,8 +42,8 @@ return {
       vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', 'g[', function() zz(vim.diagnostic.goto_prev) end, opts)
-      vim.keymap.set('n', 'g]', function() zz(vim.diagnostic.goto_next) end, opts)
+      vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
     end
 
     require("fidget").setup({})

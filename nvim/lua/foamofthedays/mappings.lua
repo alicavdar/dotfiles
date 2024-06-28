@@ -27,11 +27,6 @@ vim.keymap.set({ "n", "v" }, "L", "$", { remap = false })
 -- use `u` to undo, use `U` to redo
 vim.keymap.set("n", "U", "<C-r>", { remap = false })
 
--- Make search results appear in the middle of the screen
-vim.keymap.set("n", "n", "nzz", { remap = false })
-vim.keymap.set("n", "N", "Nzz", { remap = false })
-vim.keymap.set("n", "*", "*zz", { remap = false })
-
 -- Behave like D and C
 vim.keymap.set("n", "Y", "y$", { remap = false })
 
