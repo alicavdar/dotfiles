@@ -43,10 +43,6 @@ vim.keymap.set("n", "<Right>", "<C-w><", { remap = false })
 vim.keymap.set("n", "<Up>", "<C-w>-", { remap = false })
 vim.keymap.set("n", "<Down>", "<C-w>+", { remap = false })
 
--- Move selected lines visually
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 -- Do not move cursor after `J`
 vim.keymap.set("n", "J", "mzJ`z")
 
