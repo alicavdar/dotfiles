@@ -1,3 +1,43 @@
+local ensure_installed = { 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls', 'elixirls', 'tailwindcss' }
+local server_settings = {
+  lua_ls = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        hint = { enable = true },
+      }
+    }
+  },
+  tsserver = {
+    settings = {
+      typescript = {
+        inlayHints = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+      javascript = {
+        inlayHints = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+    },
+  },
+}
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -52,57 +92,23 @@ return {
     require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        'gopls', 'html', 'eslint', 'tsserver',
-        'lua_ls', 'elixirls', 'tailwindcss',
-      },
+      ensure_installed = ensure_installed,
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup {
+          local server_config = {
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = {
-              typescript = {
-                inlayHints = {
-                  includeInlayParameterNameHints = "all",
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                  includeInlayFunctionLikeReturnTypeHints = true,
-                  includeInlayVariableTypeHints = true,
-                  includeInlayPropertyDeclarationTypeHints = true,
-                  includeInlayFunctionParameterTypeHints = true,
-                  includeInlayEnumMemberValueHints = true,
-                },
-              },
-              javascript = {
-                inlayHints = {
-                  includeInlayParameterNameHints = "all",
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                  includeInlayFunctionLikeReturnTypeHints = true,
-                  includeInlayVariableTypeHints = true,
-                  includeInlayPropertyDeclarationTypeHints = true,
-                  includeInlayFunctionParameterTypeHints = true,
-                  includeInlayEnumMemberValueHints = true,
-                },
-              },
-            }
           }
-        end,
 
-        -- Don't know why but we need to attach lua_ls manually here
-        ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { "vim", "it", "describe", "before_each", "after_each" },
-                },
-                hint = { enable = true },
-              }
-            }
-          }
+          if server_settings[server_name] then
+            server_config = vim.tbl_deep_extend(
+              "force",
+              server_config,
+              server_settings[server_name] or {}
+            )
+          end
+
+          require("lspconfig")[server_name].setup(server_config)
         end,
       }
     })
