@@ -44,6 +44,9 @@ return {
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
       vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<C-h>', function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end, opts)
     end
 
     require("fidget").setup({})
@@ -58,6 +61,30 @@ return {
           require("lspconfig")[server_name].setup {
             capabilities = capabilities,
             on_attach = on_attach,
+            settings = {
+              typescript = {
+                inlayHints = {
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayVariableTypeHints = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
+              },
+              javascript = {
+                inlayHints = {
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayVariableTypeHints = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
+              },
+            }
           }
         end,
 
@@ -71,7 +98,8 @@ return {
               Lua = {
                 diagnostics = {
                   globals = { "vim", "it", "describe", "before_each", "after_each" },
-                }
+                },
+                hint = { enable = true },
               }
             }
           }
