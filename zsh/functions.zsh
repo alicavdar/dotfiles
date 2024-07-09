@@ -19,6 +19,14 @@ function delete_branches() {
     xargs -r git branch --delete --force
 }
 
+function gc() {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {} --" |
+    xargs -r git checkout
+}
+
 function load_nvm() {
   export NVM_DIR=~/.nvm
   [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
