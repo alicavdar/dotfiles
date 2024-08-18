@@ -18,7 +18,7 @@ alias config.functions="vim ~/.zsh/functions.zsh"
 alias config.prompt="vim ~/.zsh/prompt.zsh"
 alias config.vim="vim ~/.config/nvim -c 'cd ~/.config/nvim'"
 alias config.tmux="vim ~/.tmux.conf"
-alias config.alacritty="vim ~/.config/alacritty/alacritty.yml"
+alias config.alacritty="vim ~/.config/alacritty/alacritty.toml"
 alias config.git="vim ~/.gitconfig"
 alias config.secrets="vim ~/.secrets.sh"
 
