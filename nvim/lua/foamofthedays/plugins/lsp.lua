@@ -1,4 +1,4 @@
-local ensure_installed = { 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls', 'elixirls', 'tailwindcss' }
+local ensure_installed = { 'gopls', 'html', 'eslint', 'tsserver', 'lua_ls', 'elixirls', 'tailwindcss', 'clangd' }
 local server_settings = {
   lua_ls = {
     settings = {
