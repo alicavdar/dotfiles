@@ -49,9 +49,9 @@ function ipc() {
 }
 
 function docker_start() {
-  open -a Docker
+  open -a "Docker Desktop"
 }
 
 function docker_quit() {
-  osascript -e 'quit app "Docker"'
+  osascript -e 'quit app "Docker Desktop"'
 }
