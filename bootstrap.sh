@@ -3,6 +3,7 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/lazygit
 mkdir -p ~/.vim/undo
 mkdir -p ~/code
+mkdir -p ~/code/lab
 
 # Disable "last login" message on terminal
 touch ~/.hushlogin
@@ -16,6 +17,9 @@ ln -sF $(PWD)/gitconfig ~/.gitconfig
 ln -sF $(PWD)/nvim ~/.config/nvim
 ln -sF $(PWD)/lazygit.yml ~/.config/lazygit/config.yml
 ln -sF $(PWD)/bin/edit-tmux-output.sh ~/bin/edit-tmux-output
+
+# Clone kit
+git clone git@github.com:alicavdar/kit.git ~/code/lab/kit
 
 # Install nvm.sh manually since homebrew installation is not supported.
 # See https://github.com/nvm-sh/nvm

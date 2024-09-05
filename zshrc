@@ -12,10 +12,13 @@ source "$HOME/.zsh/functions.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+source "$HOME/code/lab/kit/kit.zsh"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.secrets.sh ] && source ~/.secrets.sh
 
 autoload -Uz zcalc
+
 
 # zsh vim mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
