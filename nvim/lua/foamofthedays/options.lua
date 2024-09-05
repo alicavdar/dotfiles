@@ -61,3 +61,16 @@ vim.api.nvim_create_autocmd({ 'BufReadPost' }, {
     vim.api.nvim_exec('silent! normal! g`"zv', false)
   end,
 })
+
+-- https://nanotipsforvim.prose.sh/treesitter-and-lsp-support-for-zsh
+vim.filetype.add {
+  extension = {
+    zsh = "sh",
+    sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+  },
+  filename = {
+    [".zshrc"] = "sh",
+    [".zshenv"] = "sh",
+  },
+}
+
