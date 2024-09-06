@@ -1,9 +1,10 @@
 tap "homebrew/cask-fonts"
 
-cask "alacritty"
-cask "rectangle"
-cask "keepingyouawake"
-cask "font-fira-code"
+brew "alacritty"
+brew "rectangle"
+brew "keepingyouawake"
+brew "font-fira-code"
+brew "maccy"
 
 brew "coreutils"
 brew "tmux"
