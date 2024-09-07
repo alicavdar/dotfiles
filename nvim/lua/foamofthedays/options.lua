@@ -1,28 +1,29 @@
 vim.opt.updatetime = 50
-vim.opt.number = true			-- Show line numbers
-vim.opt.relativenumber = true		-- Enable relative numbers
-vim.opt.smartcase = true		-- When searching try to be smart about cases
-vim.opt.ignorecase = true		-- Ignore case of searches
-vim.opt.hlsearch = false		-- Don't highlight searches
-vim.opt.incsearch = true		-- Show search matches when typing
-vim.opt.backup = false			-- Don't create backup files
-vim.opt.swapfile = false		-- Don't use swap files
-vim.opt.hidden = true			-- Switch between buffers without having to save first
-vim.opt.smarttab = true			-- Enable smarttab
-vim.opt.autoread = true			-- Auto refresh if the file has been changed outside of VIM
-vim.opt.cursorline = true		-- Show cursorline
-vim.opt.linebreak = true		-- Break long lines by word, not char
-vim.opt.splitright = true		-- Open new windows below the current window.
-vim.opt.splitbelow = true		-- Open new windows right of the current window.
-vim.opt.signcolumn = "yes"		-- Always show the sign column
-vim.opt.termguicolors = true		-- Enable true colors
-vim.opt.shortmess:append("c")		-- Don't pass messages to |ins-completion-menu|
-vim.opt.shortmess:append("I")		-- Hide NVIM's intro message
-vim.opt.mouse = "a"			-- Enable mouse
-vim.opt.clipboard = "unnamed"		-- Yank to system clipboard
-vim.opt.backspace = "indent,eol,start"	-- Make backspace work as expected
-vim.opt.scrolloff = 5			-- Always show at least 5 lines above/below the cursor
-vim.opt.fillchars = "eob: "		-- Hide the tilde (~) sign on blank lines
+vim.opt.number = true                   -- Show line numbers
+vim.opt.relativenumber = true           -- Enable relative numbers
+vim.opt.smartcase = true                -- When searching try to be smart about cases
+vim.opt.ignorecase = true               -- Ignore case of searches
+vim.opt.hlsearch = false                -- Don't highlight searches
+vim.opt.incsearch = true                -- Show search matches when typing
+vim.opt.backup = false                  -- Don't create backup files
+vim.opt.swapfile = false                -- Don't use swap files
+vim.opt.hidden = true                   -- Switch between buffers without having to save first
+vim.opt.smarttab = true                 -- Enable smarttab
+vim.opt.autoread = true                 -- Auto refresh if the file has been changed outside of VIM
+vim.opt.cursorline = true               -- Show cursorline
+vim.opt.linebreak = true                -- Break long lines by word, not char
+vim.opt.splitright = true               -- Open new windows below the current window.
+vim.opt.splitbelow = true               -- Open new windows right of the current window.
+vim.opt.signcolumn = "yes"              -- Always show the sign column
+vim.opt.termguicolors = true            -- Enable true colors
+vim.opt.shortmess:append("c")           -- Don't pass messages to |ins-completion-menu|
+vim.opt.shortmess:append("I")           -- Hide NVIM's intro message
+vim.opt.mouse = "a"                     -- Enable mouse
+vim.opt.clipboard = "unnamed"           -- Yank to system clipboard
+vim.opt.backspace = "indent,eol,start"  -- Make backspace work as expected
+vim.opt.scrolloff = 5                   -- Always show at least 5 lines above/below the cursor
+vim.opt.fillchars = "eob: "             -- Hide the tilde (~) sign on blank lines
+vim.opt.exrc = true                     -- Use local configuration files
 
 -- Indentation
 vim.opt.smartindent = true
