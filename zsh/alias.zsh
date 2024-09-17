@@ -10,6 +10,7 @@ alias lg="lazygit"
 alias du="ncdu"
 alias eto="edit-tmux-output"
 alias cat="bat --style=plain"
+alias copy="pbcopy"
 
 # Config
 alias config.zsh="vim ~/.zshrc"
