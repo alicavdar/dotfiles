@@ -1,5 +1,5 @@
 local ensure_installed = {
-  'gopls', 'html', 'eslint', 'tsserver',
+  'gopls', 'html', 'eslint', 'ts_ls',
   'lua_ls', 'elixirls', 'tailwindcss', 'clangd', 'terraformls'
 }
 
@@ -14,7 +14,7 @@ local server_settings = {
       }
     }
   },
-  tsserver = {
+  ts_ls = {
     settings = {
       typescript = {
         inlayHints = {
