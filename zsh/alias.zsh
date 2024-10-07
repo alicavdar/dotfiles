@@ -11,6 +11,7 @@ alias du="ncdu"
 alias eto="edit-tmux-output"
 alias cat="bat --style=plain"
 alias copy="pbcopy"
+alias top="btop"
 
 # Config
 alias config.zsh="vim ~/.zshrc"

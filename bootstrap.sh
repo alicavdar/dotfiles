@@ -13,6 +13,7 @@ ln -sF $(PWD)/zshrc ~/.zshrc
 ln -sF $(PWD)/zsh ~/.zsh
 ln -sF $(PWD)/tmux.conf ~/.tmux.conf
 ln -sF $(PWD)/tigrc ~/.tigrc
+ln -sF $(PWD)/btop.conf ~/.config/btop/btop.conf
 ln -sF $(PWD)/gitconfig ~/.gitconfig
 ln -sF $(PWD)/nvim ~/.config/nvim
 ln -sF $(PWD)/lazygit.yml ~/.config/lazygit/config.yml
