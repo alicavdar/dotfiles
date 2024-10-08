@@ -1,27 +1,44 @@
 autoload -U colors && colors
 setopt promptsubst
 
-# Current directory & git info
-PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT='$(prepare_zsh_prompt)'
 
-# Outputs current branch info in prompt format
-function git_prompt_info() {
+function prepare_zsh_prompt() {
   local ref
-  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+  ref=$(command git symbolic-ref HEAD 2>/dev/null) ||
+    ref=$(command git rev-parse --short HEAD 2>/dev/null)
 
-  STATUS=$(command git status --porcelain --ignore-submodules=dirty 2> /dev/null | tail -n1)
-
-  output="%{$fg_bold[cyan]%}git:"
-
-  if [[ -n $STATUS ]]; then
-    output+="%{$fg[green]%}${ref#refs/heads/}"
+  if [[ -z "$ref" ]]; then
+    echo "$(basename $(pwd)) "
   else
-    output+="%{$fg[red]%}${ref#refs/heads/}"
+    echo "$(zsh_git_prompt) "
   fi
-
-  output+=" "
-
-  echo ${output}
 }
 
+function zsh_git_prompt() {
+  local active_worktree_path=$(git rev-parse --git-dir 2>/dev/null)
+
+  local active_dir_name=$(basename $(pwd))
+  local git_prefix="git"
+
+  if [[ "$active_worktree_path" == *"worktrees"* ]]; then
+    if [[ "$(git rev-parse --show-toplevel)" == "$(pwd)" ]]; then
+      active_dir_name=$(basename $(dirname "$(pwd)"))
+    fi
+
+    # The active worktree name
+    git_prefix=$(echo $active_worktree_path | awk -F/ '{ print $NF }')
+  fi
+
+  output="$active_dir_name %{$fg_bold[cyan]%}$git_prefix:"
+
+  local git_status=$(command git status --porcelain --ignore-submodules=dirty 2>/dev/null | tail -n1)
+  local branch="${ref#refs/heads/}"
+  if [[ -n $git_status ]]; then
+    output+="%{$fg[green]%}$branch"
+  else
+    output+="%{$fg[red]%}$branch"
+  fi
+
+  echo $output
+}
