@@ -20,26 +20,46 @@ function delete_branches() {
 }
 
 function gc() {
-  local active_worktree_path=$(git rev-parse --git-dir 2>/dev/null)
-
-  if [[ "$1" == "." ]]; then
-    git branch |
-      grep --invert-match '\*' |
-      cut -c 3- |
-      fzf --multi --preview="git log {} --" |
-      xargs -r git checkout
-
+  if [[ -n "$1" && "$1" == "." ]]; then
+    _gc
     return 0
   fi
 
-  if [[ "$active_worktree_path" == *"worktrees"* ]]; then
-    local worktree=$(git worktree list |
-      awk 'NR > 1 { print $1 }' |
-      fzf --height 40% --reverse --border --prompt "Select a worktree: ")
+  if [[ -n "$1" ]]; then
+    local worktree=$(git worktree list | awk '$1 ~ /\/'$1'$/')
 
-    local worktree_path=$(echo $worktree | awk '{ print $1 }')
-    cd "$worktree_path"
+    if [[ -n "$worktree" ]]; then
+      cd $(echo "$worktree" | awk '{print $1 }')
+      return 0
+    fi
   fi
+
+  local active_worktree_path=$(git rev-parse --git-dir 2>/dev/null)
+
+  if {
+    git rev-parse --is-bare-repository &>/dev/null &&
+      [[ "$(git rev-parse --is-bare-repository)" == "true" ]]
+  } ||
+    [[ "$active_worktree_path" == *"worktrees"* ]]; then
+    local worktree=$(git worktree list |
+      awk 'NR > 1 { print $3, $1 }' | column -t |
+      fzf --height 20% --reverse --border --prompt "Select a worktree: " |
+      awk '{ print $2 }')
+
+    if [[ -n "$worktree" ]]; then
+      cd "$worktree"
+    fi
+  else
+    _gc
+  fi
+}
+
+function _gc {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {} --" |
+    xargs -r git checkout
 }
 
 function load_nvm() {
