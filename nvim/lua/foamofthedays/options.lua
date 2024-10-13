@@ -33,9 +33,8 @@ vim.opt.softtabstop = 2     -- Tab key indents by 2 spaces
 vim.opt.shiftwidth = 2      -- indents by 2 spaces
 vim.opt.shiftround = true   -- >> indents to next multiple of 'shiftwidth'
 
--- Hide status bar
+-- Status bar
 vim.opt.ruler = false
-vim.opt.laststatus = 0
 vim.opt.showcmd = false
 vim.opt.showmode = false
 
