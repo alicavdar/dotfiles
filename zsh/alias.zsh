@@ -2,7 +2,7 @@
 # For a full list of active aliases, run `alias`
 
 # General
-alias reload="source ~/.zshrc"
+alias reload="exec zsh"
 alias c="clear"
 alias hg="history 0 | grep"
 alias calc="zcalc"
