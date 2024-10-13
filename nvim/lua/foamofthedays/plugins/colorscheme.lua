@@ -18,8 +18,8 @@ return {
 
     -- Status bar
     vim.cmd [[
-      highlight StatusLine guifg=#ffffff guibg=#000000
-      highlight StatusLineNC guifg=#ffffff guibg=#000000
+      highlight StatusLine guifg=#bbbbbb guibg=#000000
+      highlight StatusLineNC guifg=#bbbbbb guibg=#000000
     ]]
   end
 }
