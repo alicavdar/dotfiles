@@ -48,3 +48,7 @@ alias tn="tmux new -s"
 alias ta="tmux a -t"
 alias tl="tmux ls"
 alias tk="tmux kill-session -t"
+
+# Docker
+alias dk="docker"
+alias dkps="docker ps -a --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}' | column -t -s '~'"
