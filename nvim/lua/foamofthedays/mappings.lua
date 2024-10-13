@@ -65,9 +65,6 @@ vim.keymap.set("n", "<leader>ct", [[ :let @*=expand("%:t")<CR> ]], { remap = fal
 vim.api.nvim_command([[ nnoremap <expr> k (v:count == 0 ? 'gk' : 'k') ]])
 vim.api.nvim_command([[ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j') ]])
 
--- Reveal the file path of the current buffer
-vim.keymap.set("n", "<Space><Space>", ":lua print(vim.fn.expand('%'))<CR>")
-
 -- Easy navigation through quickfix list
 vim.keymap.set("n", "<C-]>", ":cnext<CR>")
 vim.keymap.set("n", "<C-[>", ":cprev<CR>")
