@@ -53,14 +53,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Search for visually selected text
 vim.keymap.set("v", "//", [[ y/\V<C-R>=escape(@",'/\')<CR><CR> ]], { remap = false })
 
--- Copy current file name (relative/absolute) to system clipboard
--- Relative path (src/foo.txt)
-vim.keymap.set("n", "<leader>cf", [[ :let @*=expand("%")<CR> ]], { remap = false })
--- Absolute path (/something/src/foo.txt)
-vim.keymap.set("n", "<leader>cF", [[ :let @*=expand("%:p")<CR> ]], { remap = false })
--- Filename (foo.txt)
-vim.keymap.set("n", "<leader>ct", [[ :let @*=expand("%:t")<CR> ]], { remap = false })
-
 -- Moving the cursor through long soft-wrapped lines
 vim.api.nvim_command([[ nnoremap <expr> k (v:count == 0 ? 'gk' : 'k') ]])
 vim.api.nvim_command([[ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j') ]])
@@ -68,3 +60,20 @@ vim.api.nvim_command([[ nnoremap <expr> j (v:count == 0 ? 'gj' : 'j') ]])
 -- Easy navigation through quickfix list
 vim.keymap.set("n", "<C-]>", ":cnext<CR>")
 vim.keymap.set("n", "<C-[>", ":cprev<CR>")
+
+-- Copy current file name (relative/absolute) to system clipboard
+local function copy_path(path)
+  return function()
+    local copied_path = vim.fn.expand(path)
+    vim.fn.setreg("*", copied_path)
+    print("Copied to clipboard: " .. copied_path)
+  end
+end
+
+-- Relative path (src/foo.txt)
+vim.keymap.set("n", "<leader>cf", copy_path("%"), { remap = false })
+-- Absolute path (/something/src/foo.txt)
+vim.keymap.set("n", "<leader>cF", copy_path("%:p"), { remap = false })
+-- Filename (foo.txt)
+vim.keymap.set("n", "<leader>ct", copy_path("%:t"), { remap = false })
+
