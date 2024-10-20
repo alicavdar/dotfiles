@@ -1,6 +1,7 @@
 local ensure_installed = {
   'gopls', 'html', 'eslint', 'ts_ls',
-  'lua_ls', 'elixirls', 'tailwindcss', 'clangd', 'terraformls'
+  'lua_ls', 'elixirls', 'tailwindcss', 'clangd',
+  'terraformls', 'denols'
 }
 
 local server_settings = {
@@ -14,33 +15,54 @@ local server_settings = {
       }
     }
   },
-  ts_ls = {
-    settings = {
-      typescript = {
-        inlayHints = {
-          includeInlayParameterNameHints = "all",
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
+
+  ts_ls = function (lspconfig)
+    return {
+      root_dir = lspconfig.util.root_pattern("package.json"),
+      single_file_support = false,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
         },
       },
-      javascript = {
-        inlayHints = {
-          includeInlayParameterNameHints = "all",
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        },
-      },
-    },
-  },
+    }
+  end,
+
+  denols = function (lspconfig)
+    return {
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    }
+  end
 }
+
+local function get_server_settings(server_name, lspconfig)
+  local config = server_settings[server_name]
+
+  if type(config) == "function" then
+    return config(lspconfig)
+  end
+
+  return config
+end
 
 return {
   "neovim/nvim-lspconfig",
@@ -103,6 +125,8 @@ return {
       ensure_installed = ensure_installed,
       handlers = {
         function(server_name)
+          local lspconfig = require("lspconfig")
+
           local server_config = {
             capabilities = capabilities,
             on_attach = on_attach,
@@ -112,11 +136,11 @@ return {
             server_config = vim.tbl_deep_extend(
               "force",
               server_config,
-              server_settings[server_name] or {}
+              get_server_settings(server_name, lspconfig) or {}
             )
           end
 
-          require("lspconfig")[server_name].setup(server_config)
+          lspconfig[server_name].setup(server_config)
         end,
       }
     })
