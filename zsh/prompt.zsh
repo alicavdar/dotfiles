@@ -18,7 +18,7 @@ function prepare_zsh_prompt() {
     return 0
   fi
 
-  echo "$(basename $(pwd)) "
+  echo "$(basename "$(pwd)") "
 }
 
 function zsh_git_prompt() {
