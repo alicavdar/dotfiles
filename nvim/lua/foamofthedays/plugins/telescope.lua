@@ -32,6 +32,7 @@ return {
     vim.keymap.set("n", "<C-p>", builtin.buffers)
     vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
     vim.keymap.set("n", "<leader>r", builtin.registers)
+    vim.keymap.set("n", "<leader>sr", builtin.resume)
 
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
         pattern = { "*" },
