@@ -47,6 +47,7 @@
 
 [branch]
   autosetuprebase = always
+  sort = -committerdate
 
 [rebase]
   autostash = true
