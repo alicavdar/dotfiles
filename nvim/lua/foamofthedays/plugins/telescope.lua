@@ -13,6 +13,7 @@ return {
 
     telescope.setup({
       defaults = {
+        layout_strategy = "vertical",
         mappings = {
           i = { ["<ESC>"] = actions.close },
           n = { ["<ESC>"] = actions.close }
