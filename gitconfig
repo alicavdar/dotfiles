@@ -3,7 +3,7 @@
   email = 779832+alicavdar@users.noreply.github.com
 
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 
 [core]
   pager = delta
@@ -51,3 +51,6 @@
 
 [rebase]
   autostash = true
+
+[column]
+  ui = auto
