@@ -19,31 +19,7 @@ local server_settings = {
   ts_ls = function (lspconfig)
     return {
       root_dir = lspconfig.util.root_pattern("package.json"),
-      single_file_support = false,
-      settings = {
-        typescript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
-        },
-        javascript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
-        },
-      },
+      single_file_support = true,
     }
   end,
 
@@ -114,9 +90,6 @@ return {
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
       vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
-      vim.keymap.set('n', '<leader>h', function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-      end, opts)
     end
 
     require("fidget").setup({})
