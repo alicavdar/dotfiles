@@ -13,11 +13,10 @@ return {
 
     telescope.setup({
       defaults = {
-        layout_strategy = "vertical",
         mappings = {
           i = { ["<ESC>"] = actions.close },
-          n = { ["<ESC>"] = actions.close }
-        }
+          n = { ["<ESC>"] = actions.close },
+        },
       }
     })
 
@@ -32,8 +31,12 @@ return {
     vim.keymap.set("n", "<leader>t", builtin.filetypes)
     vim.keymap.set("n", "<C-p>", builtin.buffers)
     vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
-    vim.keymap.set("n", "<leader>r", builtin.registers)
-    vim.keymap.set("n", "<leader>sr", builtin.resume)
+    vim.keymap.set("n", "<leader>ts", builtin.resume)
+    vim.keymap.set('n', 'gr', function ()
+      return builtin.lsp_references({
+        show_line = true,
+      })
+    end)
 
     vim.api.nvim_create_autocmd({ "BufEnter" }, {
         pattern = { "*" },
