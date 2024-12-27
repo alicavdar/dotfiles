@@ -26,7 +26,7 @@ foreground = "0xeaeaea"
 size = 13
 
 [font.normal]
-family = "Fira Code"
+family = "FiraCode Nerd Font"
 style = "Retina"
 
 [scrolling]

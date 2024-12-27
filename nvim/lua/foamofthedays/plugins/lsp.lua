@@ -4,7 +4,7 @@ local ensure_installed = {
   'terraformls', 'denols'
 }
 
-local server_settings = {
+local server_configs = {
   lua_ls = {
     settings = {
       Lua = {
@@ -30,8 +30,12 @@ local server_settings = {
   end
 }
 
-local function get_server_settings(server_name, lspconfig)
-  local config = server_settings[server_name]
+local function get_server_config(server_name, lspconfig)
+  local config = server_configs[server_name]
+
+  if not config then
+    return nil
+  end
 
   if type(config) == "function" then
     return config(lspconfig)
@@ -43,49 +47,32 @@ end
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    "saghen/blink.cmp",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/nvim-cmp",
-    {
-      "L3MON4D3/LuaSnip",
-      dependencies = { "rafamadriz/friendly-snippets" },
-      config = function ()
-        require("luasnip.loaders.from_vscode").load()
-      end
-    },
-    "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
   },
   config = function()
-    local cmp = require("cmp")
-    local cmp_lsp = require("cmp_nvim_lsp")
-    local luasnip = require("luasnip")
+    local lspconfig = require("lspconfig")
+    local blink_cmp = require("blink.cmp")
 
-    local capabilities = vim.tbl_deep_extend(
-      "force",
-      {},
-      vim.lsp.protocol.make_client_capabilities(),
-      cmp_lsp.default_capabilities()
-    )
+    local base_server_config = {
+      capabilities = blink_cmp.get_lsp_capabilities(),
+      on_attach = function (_, bufnr)
+        local opts = {buffer = bufnr, remap = false}
 
-    local function on_attach(_client, bufnr)
-      local opts = {buffer = bufnr, remap = false}
-
-      vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, opts)
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
-      vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
-    end
+        vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+      end,
+    }
 
     require("fidget").setup({})
     require("mason").setup()
@@ -93,67 +80,17 @@ return {
       ensure_installed = ensure_installed,
       handlers = {
         function(server_name)
-          local lspconfig = require("lspconfig")
-
-          local server_config = {
-            capabilities = capabilities,
-            on_attach = on_attach,
-          }
-
-          if server_settings[server_name] then
-            server_config = vim.tbl_deep_extend(
-              "force",
-              server_config,
-              get_server_settings(server_name, lspconfig) or {}
-            )
-          end
+          local server_config = vim.tbl_deep_extend(
+            "force",
+            base_server_config,
+            get_server_config(server_name, lspconfig) or {}
+          )
 
           lspconfig[server_name].setup(server_config)
         end,
       }
     })
 
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-j>"] = cmp.mapping(function() luasnip.expand() end, { "i" }),
-      }),
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-      }, {
-        { name = 'buffer' },
-      })
-    })
-
-    -- Use buffer source for `/` and `?` 
-    -- This won't work when `native_menu` is enabled
-    cmp.setup.cmdline({ '/', '?' }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      }
-    })
-
-    -- Use cmdline & path source for ':' 
-    -- This won't work when `native_menu` is enabled
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = 'path' }
-      }, {
-        { name = 'cmdline' }
-      })
-    })
-
-    vim.diagnostic.config({
-      virtual_text = true,
-      signs = false,
-    })
+    vim.diagnostic.config({ signs = false })
   end
 }

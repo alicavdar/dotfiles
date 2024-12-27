@@ -4,6 +4,7 @@ brew "alacritty"
 brew "rectangle"
 brew "keepingyouawake"
 brew "font-fira-code"
+brew "font-fira-code-nerd-font"
 brew "maccy"
 
 brew "coreutils"
