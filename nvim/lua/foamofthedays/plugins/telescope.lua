@@ -13,8 +13,13 @@ return {
 
     telescope.setup({
       defaults = {
+        path_display = { "truncate" },
         mappings = {
-          i = { ["<ESC>"] = actions.close },
+          i = {
+            ["<ESC>"] = actions.close,
+            ["<C-j>"] = actions.cycle_history_prev,
+            ["<C-k>"] = actions.cycle_history_next,
+          },
           n = { ["<ESC>"] = actions.close },
         },
       }
