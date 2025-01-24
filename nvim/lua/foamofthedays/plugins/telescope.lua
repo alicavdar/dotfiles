@@ -36,7 +36,7 @@ return {
     vim.keymap.set("n", "<leader>t", builtin.filetypes)
     vim.keymap.set("n", "<C-p>", builtin.buffers)
     vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols)
-    vim.keymap.set("n", "<leader>ts", builtin.resume)
+    vim.keymap.set("n", "<leader>r", builtin.resume)
     vim.keymap.set('n', 'gr', function ()
       return builtin.lsp_references({
         show_line = true,
