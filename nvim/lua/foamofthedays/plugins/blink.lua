@@ -14,7 +14,9 @@ return {
       default = { 'lsp', 'path', 'buffer' },
     },
     completion = {
-      list = { selection = 'auto_insert' }
+      list = {
+        selection = { preselect = false, auto_insert = true },
+      }
     },
   },
   opts_extend = { 'sources.default' }
