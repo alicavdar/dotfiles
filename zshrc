@@ -1,3 +1,6 @@
+export HOMEBREW_NO_ANALYTICS=1
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Set default encoding to UTF-8
 export LANG=en_US.UTF-8
 
