@@ -1,30 +1,34 @@
 export HOMEBREW_NO_ANALYTICS=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Default config path
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Set default encoding to UTF-8
 export LANG=en_US.UTF-8
 
 # Use nvim as the default editor
 export EDITOR="nvim"
 
-source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
 source "$HOME/.zsh/completion.zsh"
 source "$HOME/.zsh/alias.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/functions.zsh"
-source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/.secrets.sh"
 
-source "$HOME/code/lab/kit/kit.zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.secrets.sh ] && source ~/.secrets.sh
-
-autoload -Uz zcalc
-
-
-# zsh vim mode
+# VIM
+source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+
+# Highlighting
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='none'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='none'
+
+# Substring search
+source "$HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 
@@ -47,16 +51,11 @@ setopt share_history          # Share history data between sessions
 # Initialize jump
 eval "$(jump shell --bind=z)"
 
-# zsh-syntax-highligting without underlines
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
-# FZF color scheme
+# FZF
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='
   --color=gutter:-1,bg:-1,hl:#ecc518
 '
-
-export XDG_CONFIG_HOME="$HOME/.config"
 
 # Grep
 export GREP_OPTIONS='--color=auto'

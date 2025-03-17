@@ -3,6 +3,7 @@
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/lazygit"
+mkdir -p "$HOME/.config/btop"
 mkdir -p "$HOME/.vim/undo"
 mkdir -p "$HOME/code"
 mkdir -p "$HOME/code/lab"
@@ -33,6 +34,10 @@ for src target in "${(@kv)files}"; do
     echo "[NEW] Symlink created for $src -> $target"
   fi
 done
+
+if [ ! -d "$HOME/.secrets.sh" ]; then
+  touch $HOME/.secrets.sh
+fi
 
 # Install tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

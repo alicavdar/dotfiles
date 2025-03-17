@@ -11,6 +11,7 @@
    - Set up a new SSH key.
 4. **Install Homebrew**
    - Run `brew bundle install --verbose`
+   - Run `eval "$(/opt/homebrew/bin/brew shellenv)"`
    - Ensure that `HOMEBREW_PREFIX` is set correctly.
 5. **Run `bootstrap.sh`**
 6. **Run `macos.sh`**
