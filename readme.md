@@ -24,7 +24,9 @@ These tasks can be done at any time as they don't depend on the main setup steps
 1. **Install Firefox**
    - Set it as your default browser.
 2. **Install Chrome**
-3. **Download profile photo for avatars**
+3. **Download CleanShot**
+   - https://cleanshot.com
+4. **Download profile photo for avatars**
   ```bash
   curl -o ~/Desktop/profile-photo.png https://avatars.githubusercontent.com/u/779832 
   ```
