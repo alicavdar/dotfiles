@@ -67,7 +67,6 @@ function load_nvm() {
   [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 }
 
-# You might need to run `yarn unlink node`
 function link_nvm() {
   sudo rm -f /usr/local/bin/node
   sudo rm -f /usr/local/bin/npm
