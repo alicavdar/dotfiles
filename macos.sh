@@ -50,3 +50,6 @@ defaults write com.apple.dock show-process-indicators -bool true
 
 # Don't animate opening applications
 defaults write com.apple.dock launchanim -bool false
+
+mkdir -p $HOME/Desktop/Screenshots
+defaults write com.apple.screencapture location $HOME/Desktop/Screenshots
