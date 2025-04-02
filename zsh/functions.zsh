@@ -62,18 +62,6 @@ function _gc {
     xargs -r git checkout
 }
 
-function load_nvm() {
-  export NVM_DIR=~/.nvm
-  [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-}
-
-function link_nvm() {
-  sudo rm -f /usr/local/bin/node
-  sudo rm -f /usr/local/bin/npm
-  sudo ln -s $(which node) /usr/local/bin/
-  sudo ln -s $(which npm) /usr/local/bin/
-}
-
 function ip() {
   curl -s ipinfo.io | jq .ip | tr -d \"
 }

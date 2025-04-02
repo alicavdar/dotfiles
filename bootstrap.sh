@@ -48,9 +48,3 @@ fi
 if [ ! -d "$HOME/code/lab/kit" ]; then
   git clone git@github.com:alicavdar/kit.git "$HOME/code/lab/kit"
 fi
-
-# Install nvm.sh manually since homebrew installation is not supported.
-# See https://github.com/nvm-sh/nvm
-if [ ! -d "$HOME/.nvm" ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-fi
