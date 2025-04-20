@@ -14,7 +14,7 @@ source "$HOME/.zsh/completion.zsh"
 source "$HOME/.zsh/alias.zsh"
 source "$HOME/.zsh/prompt.zsh"
 source "$HOME/.zsh/functions.zsh"
-source "$HOME/.secrets.sh"
+source "$HOME/.extra.sh"
 
 # VIM
 source "$HOME/.zsh/zsh-vim-mode.plugin.zsh"

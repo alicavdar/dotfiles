@@ -35,8 +35,8 @@ for src target in "${(@kv)files}"; do
   fi
 done
 
-if [ ! -d "$HOME/.secrets.sh" ]; then
-  touch $HOME/.secrets.sh
+if [ ! -d "$HOME/.extra.sh" ]; then
+  touch $HOME/.extra.sh
 fi
 
 # Install tmux plugin manager

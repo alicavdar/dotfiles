@@ -21,7 +21,7 @@ alias config.vim="vim ~/.config/nvim -c 'cd ~/.config/nvim'"
 alias config.tmux="vim ~/.tmux.conf"
 alias config.alacritty="vim ~/.config/alacritty/alacritty.toml"
 alias config.git="vim ~/.gitconfig"
-alias config.secrets="vim ~/.secrets.sh"
+alias config.extra="vim ~/.extra.sh"
 
 # Vim
 alias vi="nvim"
