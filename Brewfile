@@ -3,7 +3,6 @@ cask "rectangle"
 cask "keepingyouawake"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
-cask "maccy"
 cask "multipass"
 
 brew "coreutils"
