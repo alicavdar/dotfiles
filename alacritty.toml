@@ -1,3 +1,7 @@
+[shell]
+program = "/bin/zsh"
+args = ["--login"]
+
 [colors.bright]
 black = "0x666666"
 blue = "0x7aa6da"
