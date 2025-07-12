@@ -77,3 +77,9 @@ function docker_start() {
 function docker_quit() {
   osascript -e 'quit app "Docker Desktop"'
 }
+
+function init_pyenv() {
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+}
