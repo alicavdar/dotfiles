@@ -70,14 +70,6 @@ function ipc() {
   ip | pbcopy
 }
 
-function docker_start() {
-  open -a "Docker Desktop"
-}
-
-function docker_quit() {
-  osascript -e 'quit app "Docker Desktop"'
-}
-
 function init_pyenv() {
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"

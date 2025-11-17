@@ -49,5 +49,6 @@ alias tl="tmux ls"
 alias tk="tmux kill-session -t"
 
 # Docker
-alias dk="docker"
-alias dkps="docker ps -a --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}' | column -t -s '~'"
+alias docker="nerdctl"
+alias dk="nerdctl"
+alias dkps="nerdctl ps -a --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}' | column -t -s '~'"
