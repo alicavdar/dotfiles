@@ -1,0 +1,7 @@
+font-family = FiraCode Nerd Font
+font-style = Regular
+font-size = 13
+
+background = #000000
+
+keybind = global:cmd+backquote=toggle_visibility

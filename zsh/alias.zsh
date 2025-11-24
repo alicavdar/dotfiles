@@ -20,6 +20,7 @@ alias config.prompt="vim ~/.zsh/prompt.zsh"
 alias config.vim="vim ~/.config/nvim -c 'cd ~/.config/nvim'"
 alias config.tmux="vim ~/.tmux.conf"
 alias config.alacritty="vim ~/.config/alacritty/alacritty.toml"
+alias config.ghostty="vim ~/.config/ghostty/config"
 alias config.git="vim ~/.gitconfig"
 alias config.extra="vim ~/.extra.sh"
 

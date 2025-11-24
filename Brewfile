@@ -4,6 +4,7 @@ cask "keepingyouawake"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "multipass"
+cask "ghostty"
 
 brew "coreutils"
 brew "tmux"

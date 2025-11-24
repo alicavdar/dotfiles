@@ -2,6 +2,7 @@
 
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config/ghostty"
 mkdir -p "$HOME/.config/lazygit"
 mkdir -p "$HOME/.config/btop"
 mkdir -p "$HOME/.vim/undo"
@@ -13,6 +14,7 @@ touch ~/.hushlogin
 
 typeset -A files=(
   "alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+  "ghostty" "$HOME/.config/ghostty/config"
   "zshrc" "$HOME/.zshrc"
   "zsh" "$HOME/.zsh"
   "tmux.conf" "$HOME/.tmux.conf"
@@ -42,9 +44,4 @@ fi
 # Install tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-fi
-
-# Clone kit
-if [ ! -d "$HOME/code/lab/kit" ]; then
-  git clone git@github.com:alicavdar/kit.git "$HOME/code/lab/kit"
 fi
