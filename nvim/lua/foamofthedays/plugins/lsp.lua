@@ -4,6 +4,43 @@ local ensure_installed = {
   'terraformls',
 }
 
+local server_configs = {
+  lua_ls = {
+    settings = {
+      Lua = {
+        diagnostics = { globals = { "vim" } },
+      }
+    }
+  },
+
+  ts_ls = function (lspconfig)
+    return {
+      root_dir = lspconfig.util.root_pattern("package.json"),
+      single_file_support = true,
+    }
+  end,
+
+  denols = function (lspconfig)
+    return {
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+    }
+  end
+}
+
+local function get_server_config(server_name, lspconfig)
+  local config = server_configs[server_name]
+
+  if not config then
+    return nil
+  end
+
+  if type(config) == "function" then
+    return config(lspconfig)
+  end
+
+  return config
+end
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -38,13 +75,13 @@ return {
       end,
     })
 
-    vim.lsp.config('lua_ls', {
-      settings = {
-        Lua = {
-          diagnostics = { globals = { "vim" } },
-        }
-      }
-    })
+
+    local lspconfig = require("lspconfig")
+    for _, server_name in ipairs(ensure_installed) do
+      local server_config = get_server_config(server_name, lspconfig) or {}
+      vim.lsp.config(server_name, server_config)
+    end
+
 
     vim.diagnostic.config({ signs = false })
   end
