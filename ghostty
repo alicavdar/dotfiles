@@ -4,4 +4,4 @@ font-size = 13
 
 background = #000000
 
-keybind = global:cmd+backquote=toggle_visibility
+keybind = global:cmd+.=toggle_visibility
