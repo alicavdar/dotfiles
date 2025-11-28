@@ -19,8 +19,12 @@ return {
             ["<ESC>"] = actions.close,
             ["<C-j>"] = actions.cycle_history_prev,
             ["<C-k>"] = actions.cycle_history_next,
+            ["<C-d>"] = actions.delete_buffer,
           },
-          n = { ["<ESC>"] = actions.close },
+          n = {
+            ["<ESC>"] = actions.close,
+            ["<C-d>"] = actions.delete_buffer,
+          },
         },
       }
     })
