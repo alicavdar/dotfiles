@@ -5,3 +5,5 @@ font-size = 13
 background = #000000
 
 keybind = global:cmd+.=toggle_visibility
+
+title = " "
