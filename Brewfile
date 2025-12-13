@@ -1,4 +1,3 @@
-cask "alacritty"
 cask "rectangle"
 cask "keepingyouawake"
 cask "font-fira-code"

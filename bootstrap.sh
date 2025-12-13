@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 mkdir -p "$HOME/bin"
-mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/ghostty"
 mkdir -p "$HOME/.config/lazygit"
 mkdir -p "$HOME/.config/btop"
@@ -13,7 +12,6 @@ mkdir -p "$HOME/code/lab"
 touch ~/.hushlogin
 
 typeset -A files=(
-  "alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
   "ghostty" "$HOME/.config/ghostty/config"
   "zshrc" "$HOME/.zshrc"
   "zsh" "$HOME/.zsh"
