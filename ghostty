@@ -4,4 +4,4 @@ font-size = 13
 background = #000000
 title = " "
 confirm-close-surface = false
-keybind = global:cmd+.=toggle_visibility
+keybind = global:cmd+/=toggle_visibility
