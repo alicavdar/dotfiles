@@ -1,7 +1,7 @@
 local ensure_installed = {
   'gopls', 'html', 'eslint', 'ts_ls',
   'lua_ls', 'elixirls', 'tailwindcss', 'clangd',
-  'terraformls',
+  'terraformls', 'pyright'
 }
 
 local server_configs = {
@@ -14,17 +14,13 @@ local server_configs = {
   },
 
   ts_ls = function (lspconfig)
+    local root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json")(vim.fn.expand('%:p'))
+
     return {
-      root_dir = lspconfig.util.root_pattern("package.json"),
+      root_dir = root_dir,
       single_file_support = true,
     }
   end,
-
-  denols = function (lspconfig)
-    return {
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-    }
-  end
 }
 
 local function get_server_config(server_name, lspconfig)
