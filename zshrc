@@ -68,4 +68,7 @@ export PATH=$PATH:$GOPATH/bin
 # Python
 PATH=$(pyenv root)/shims:$PATH
 
+# asdf
+PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 export PATH="$HOME/bin:$PATH"
