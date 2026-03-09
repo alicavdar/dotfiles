@@ -45,7 +45,7 @@ vim.opt.scroll = 10
 -- Folding
 vim.opt.foldlevel = 20 -- Opens all folds when opening a file
 vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- Completion menu transparency
 vim.opt.pumblend = 15
