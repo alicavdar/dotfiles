@@ -1,5 +1,5 @@
 local ensure_installed = {
-  'gopls', 'html', 'eslint', 'ts_ls',
+  'gopls', 'html', 'eslint', 'biome', 'ts_ls',
   'lua_ls', 'elixirls', 'tailwindcss', 'clangd',
   'terraformls', 'pyright'
 }
