@@ -3,7 +3,7 @@ return {
   version = '*',
   opts = {
     keymap = {
-      preset = 'default' ,
+      preset = 'default',
       ['<CR>'] = { 'accept', 'fallback' },
     },
     appearance = {
