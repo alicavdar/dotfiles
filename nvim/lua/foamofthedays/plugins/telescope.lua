@@ -14,6 +14,9 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "truncate" },
+        preview = {
+          treesitter = false,
+        },
         mappings = {
           i = {
             ["<ESC>"] = actions.close,
