@@ -68,7 +68,7 @@ export PATH=$PATH:$GOPATH/bin
 # Python
 PATH=$(pyenv root)/shims:$PATH
 
-# asdf
-PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# activate mise
+eval "$(mise activate zsh)"
 
 export PATH="$HOME/bin:$PATH"
