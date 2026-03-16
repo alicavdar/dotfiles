@@ -5,7 +5,7 @@ return {
   },
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter.configs").setup {
+    require("nvim-treesitter.config").setup {
       ensure_installed = {
         "go", "lua", "python", "rust", "elixir", "heex",
         "tsx", "typescript", "vimdoc", "vim", "html", "c", "terraform",
