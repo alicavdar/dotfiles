@@ -29,6 +29,7 @@ vim.opt.exrc = true                     -- Use local configuration files
 vim.opt.smartindent = true
 vim.opt.autoindent = true   -- Indent according to previous line
 vim.opt.expandtab =  true   -- Use spaces instead of tabs
+vim.opt.tabstop = 2         -- Display tabs as 2 spaces
 vim.opt.softtabstop = 2     -- Tab key indents by 2 spaces
 vim.opt.shiftwidth = 2      -- indents by 2 spaces
 vim.opt.shiftround = true   -- >> indents to next multiple of 'shiftwidth'
