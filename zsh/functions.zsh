@@ -75,3 +75,7 @@ function init_pyenv() {
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 }
+
+function cheat() {
+  curl "cht.sh/$1"
+}
