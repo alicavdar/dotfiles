@@ -16,6 +16,7 @@
 5. **Run `bootstrap.sh`**
 6. **Run `macos.sh`**
    - Remember to modify Caps Lock to Control.
+   - Change keyboard layout to "Turkish Q - Legacy / German".
 
 ## Independent Tasks
 
