@@ -9,42 +9,30 @@ function prepare_zsh_prompt() {
     ref=$(command git rev-parse --short HEAD 2>/dev/null)
 
   if [[ -n "$ref" ]]; then
-    echo "$(zsh_git_prompt) "
+    zsh_git_prompt "$ref"
     return 0
   fi
 
-  if [[ "$HOME" == "$(pwd)" ]]; then
+  if [[ "$PWD" == "$HOME" ]]; then
     echo "~ "
     return 0
   fi
 
-  echo "$(basename "$(pwd)") "
+  echo "${PWD:t} "
 }
 
 function zsh_git_prompt() {
-  local active_worktree_path=$(git rev-parse --git-dir 2>/dev/null)
-
-  local active_dir_name=$(basename $(pwd))
-  local git_prefix="git"
-
-  if [[ "$active_worktree_path" == *"worktrees"* ]]; then
-    if [[ "$(git rev-parse --show-toplevel)" == "$(pwd)" ]]; then
-      active_dir_name=$(basename $(dirname "$(pwd)"))
-    fi
-
-    # The active worktree name
-    git_prefix=$(echo $active_worktree_path | awk -F/ '{ print $NF }')
-  fi
-
-  output="$active_dir_name %{$fg_bold[cyan]%}$git_prefix:"
-
-  local git_status=$(command git status --porcelain --ignore-submodules=dirty 2>/dev/null | tail -n1)
+  local ref="$1"
   local branch="${ref#refs/heads/}"
-  if [[ -n $git_status ]]; then
-    output+="%{$fg[green]%}$branch"
-  else
-    output+="%{$fg[red]%}$branch"
+
+  if (( ${#branch} > 15 )); then
+    branch="${branch:0:15}"
   fi
 
-  echo $output
+  if command git diff-index --quiet HEAD -- 2>/dev/null && \
+     [[ -z "$(command git ls-files --others --exclude-standard 2>/dev/null)" ]]; then
+    echo "${PWD:t} %{$fg_bold[cyan]%}git:%{$fg[red]%}$branch "
+  else
+    echo "${PWD:t} %{$fg_bold[cyan]%}git:%{$fg[green]%}$branch "
+  fi
 }
