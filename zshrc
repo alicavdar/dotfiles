@@ -68,7 +68,9 @@ export PATH=$PATH:$GOPATH/bin
 # Python
 PATH=$(pyenv root)/shims:$PATH
 
-# activate mise
-eval "$(mise activate zsh)"
+# activate mise (--shims avoids a hook on every prompt,
+# but won't auto-switch tool versions on cd into a .mise.toml directory.
+# use `mise shell` to manually switch versions when needed)
+eval "$(mise activate zsh --shims)"
 
 export PATH="$HOME/bin:$PATH"
